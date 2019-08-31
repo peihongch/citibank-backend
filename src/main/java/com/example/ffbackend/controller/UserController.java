@@ -21,19 +21,18 @@ public class UserController {
         return new ResponseBean<>(true, null);
     }
 
-    @PutMapping
-    public ResponseBean<Object> UpdateUser(@RequestBody UserVo vo) {
+    @PutMapping("/{username}")
+    public ResponseBean<Object> UpdateUser(@PathVariable("username") String username, @RequestBody UserVo vo) {
         return new ResponseBean<>(true, null);
     }
 
-    @GetMapping("/{id}")
-    public ResponseBean<UserVo> GetUser(@PathVariable("id") Long id) {
+    @GetMapping("/{username}")
+    public ResponseBean<UserVo> GetUser(@PathVariable("username") String username) {
         return new ResponseBean<>(true, new UserVo());
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseBean<Object> DeleteUser(@PathVariable("id") Long id) {
+    @DeleteMapping("/{username}")
+    public ResponseBean<Object> DeleteUser(@PathVariable("username") String username) {
         return new ResponseBean<>(true, null);
     }
-
 }
