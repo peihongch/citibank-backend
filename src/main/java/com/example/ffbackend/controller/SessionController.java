@@ -15,7 +15,7 @@ public class SessionController {
     @PostMapping
     public ResponseBean<String> CreateSession(@RequestParam(value = "username") String username,
             @RequestParam(value = "pwd") String pwd) {
-        return new ResponseBean<String>(true, "sample_token");
+        return new ResponseBean<String>(true, "sample_session");
     }
 
     @DeleteMapping("/{session}")
