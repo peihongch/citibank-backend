@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/user")
@@ -33,6 +34,16 @@ public class UserController {
 
     @DeleteMapping("/{username}")
     public ResponseBean<Object> DeleteUser(@PathVariable("username") String username) {
+        return new ResponseBean<>(true, null);
+    }
+
+    @PostMapping("/email-captcha")
+    public ResponseBean<Object> CreateEmailCaptcha(@RequestParam(value = "email") String email) {
+        return new ResponseBean<>(true, null);
+    }
+
+    @PostMapping("/phone-captcha")
+    public ResponseBean<Object> CreatePhoneCaptcha(@RequestParam(value = "phone") String phone) {
         return new ResponseBean<>(true, null);
     }
 }
