@@ -1,6 +1,6 @@
 package com.example.ffbackend.exception;
 
-import com.example.ffbackend.viewobject.ResponseEnums;
+import com.example.ffbackend.vo.ResponseEnums;
 
 import lombok.Getter;
 import lombok.Setter;

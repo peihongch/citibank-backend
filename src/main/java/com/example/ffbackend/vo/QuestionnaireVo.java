@@ -1,4 +1,4 @@
-package com.example.ffbackend.viewobject;
+package com.example.ffbackend.vo;
 
 import lombok.Data;
 

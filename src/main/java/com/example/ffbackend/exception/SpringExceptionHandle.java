@@ -2,8 +2,8 @@ package com.example.ffbackend.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.example.ffbackend.viewobject.ResponseBean;
-import com.example.ffbackend.viewobject.ResponseEnums;
+import com.example.ffbackend.vo.ResponseBean;
+import com.example.ffbackend.vo.ResponseEnums;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

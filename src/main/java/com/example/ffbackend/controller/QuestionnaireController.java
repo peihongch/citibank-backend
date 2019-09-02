@@ -2,8 +2,8 @@ package com.example.ffbackend.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.ffbackend.viewobject.QuestionnaireVo;
-import com.example.ffbackend.viewobject.ResponseBean;
+import com.example.ffbackend.vo.QuestionnaireVo;
+import com.example.ffbackend.vo.ResponseBean;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

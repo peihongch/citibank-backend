@@ -1,6 +1,6 @@
 package com.example.ffbackend.controller;
 
-import com.example.ffbackend.viewobject.ResponseBean;
+import com.example.ffbackend.vo.ResponseBean;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;

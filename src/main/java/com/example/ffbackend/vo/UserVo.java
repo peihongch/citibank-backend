@@ -1,4 +1,4 @@
-package com.example.ffbackend.viewobject;
+package com.example.ffbackend.vo;
 
 import java.util.Date;
 
@@ -9,7 +9,9 @@ public class UserVo {
     String username;
     String password;
     String email;
+    String emailCaptcha;
     String phone;
+    String phoneCaptcha;
     Boolean gender;
     Date birthday;
     String career;
