@@ -5,35 +5,49 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import com.example.ffbackend.da.UserDaService;
+import com.example.ffbackend.entity.User;
 import com.example.ffbackend.vo.UserVo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+    @Autowired
+    UserDaService userDaService;
+
     Map<String, Pair<Date, String>> emailCaptchaDict = new HashMap<>();
     Map<String, Pair<Date, String>> phoneCaptchaDict = new HashMap<>();
     Random rand = new Random();
 
     @Override
     public boolean InsertUser(UserVo vo) {
+        User user = User.FromVo(vo);
+        user.setId(null);
+        userDaService.InsertUser(user);
         return true;
     }
 
     @Override
     public boolean DeleteUser(String username) {
+        userDaService.DeleteUser(username);
         return true;
     }
 
     @Override
     public boolean UpdateUser(UserVo vo) {
+        User user = User.FromVo(vo);
+        if (user.getId() == null)
+            return false;
+        userDaService.UpdateUser(user);
         return true;
     }
 
     @Override
     public UserVo GetUserByUsername(String username) {
-        return null;
+        return userDaService.GetUserByUsername(username).GetVo();
     }
 
     @Override
