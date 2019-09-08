@@ -32,13 +32,13 @@ public class UserController {
         return new ResponseBean<>(true, null);
     }
 
-    @PutMapping("/{username}")
+    @PutMapping(value = "/{username}")
     public ResponseBean<Object> UpdateUser(@PathVariable("username") String username, @RequestBody UserVo vo) {
         userService.UpdateUser(vo);
         return new ResponseBean<>(true, null);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping(value = "/{username}")
     public ResponseBean<UserVo> GetUser(@PathVariable("username") String username) {
         UserVo userVo = userService.GetUserByUsername(username);
         if (userVo == null)
@@ -46,19 +46,19 @@ public class UserController {
         return new ResponseBean<>(true, userVo);
     }
 
-    @DeleteMapping("/{username}")
+    @DeleteMapping(value = "/{username}")
     public ResponseBean<Object> DeleteUser(@PathVariable("username") String username) {
         userService.DeleteUser(username);
         return new ResponseBean<>(true, null);
     }
 
-    @PostMapping("/email-captcha")
+    @PostMapping(value = "/email-captcha")
     public ResponseBean<Object> CreateEmailCaptcha(@RequestParam(value = "email") String email) {
         userService.InsertEmailCaptcha(email);
         return new ResponseBean<>(true, null);
     }
 
-    @PostMapping("/phone-captcha")
+    @PostMapping(value = "/phone-captcha")
     public ResponseBean<Object> CreatePhoneCaptcha(@RequestParam(value = "phone") String phone) {
         userService.InsertPhoneCaptcha(phone);
         return new ResponseBean<>(true, null);

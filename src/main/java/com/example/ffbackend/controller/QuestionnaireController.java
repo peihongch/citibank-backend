@@ -26,7 +26,7 @@ public class QuestionnaireController {
         return new ResponseBean<>(true, null);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseBean<QuestionnaireVo> GetQuestionnaire(@PathVariable Long param) {
         return new ResponseBean<>(true, null);
     }

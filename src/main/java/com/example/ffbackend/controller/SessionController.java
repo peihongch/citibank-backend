@@ -18,7 +18,7 @@ public class SessionController {
         return new ResponseBean<String>(true, "sample_session");
     }
 
-    @DeleteMapping("/{session}")
+    @DeleteMapping(value = "/{session}")
     public ResponseBean<Object> DeleteSession(@PathVariable("session") String session) {
         return new ResponseBean<>(true, null);
     }
