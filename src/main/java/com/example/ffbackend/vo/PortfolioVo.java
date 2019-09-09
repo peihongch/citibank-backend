@@ -6,12 +6,14 @@ import lombok.Data;
 
 @Data
 public class PortfolioVo {
-    class StockInfo {
+    @Data
+    public class StockInPortfolioVo {
+        Integer id;
         String code;
         Double num;
         Double money;
     }
     Integer id;
     Integer userId;
-    List<StockInfo> stockList;
+    List<StockInPortfolioVo> stockList;
 }

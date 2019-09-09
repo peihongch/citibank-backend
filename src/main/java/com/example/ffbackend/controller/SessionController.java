@@ -15,11 +15,13 @@ public class SessionController {
     @PostMapping
     public ResponseBean<String> createSession(@RequestParam(value = "username") String username,
             @RequestParam(value = "pwd") String pwd) {
+        // TODO: 判断用户密码(用MD5??)正确，获取session库
         return new ResponseBean<String>(true, "sample_session");
     }
 
     @DeleteMapping(value = "/{session}")
     public ResponseBean<Object> deleteSession(@PathVariable("session") String session) {
+        // TODO: 利用Session库用户登出
         return new ResponseBean<>(true, null);
     }
 }

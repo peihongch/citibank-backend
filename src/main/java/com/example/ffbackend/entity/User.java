@@ -33,7 +33,7 @@ public class User {
     String investmentPreference;
     String address;
 
-    public static User FromVo (UserVo vo) {
+    public static User fromVo (UserVo vo) {
         User res = new User ();
         res.setId(vo.getId ());
         res.setUsername(vo.getUsername());
@@ -47,7 +47,7 @@ public class User {
         // TODO: 
         return res;
     }
-    public UserVo GetVo () {
+    public UserVo getVo () {
         UserVo vo = new UserVo();
         vo.setId(id);
         vo.setUsername(username);

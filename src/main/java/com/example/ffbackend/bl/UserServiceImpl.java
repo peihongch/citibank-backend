@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean InsertUser(UserVo vo) {
-        User user = User.FromVo(vo);
+        User user = User.fromVo(vo);
         user.setId(null);
         userDaService.InsertUser(user);
         return true;
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean UpdateUser(UserVo vo) {
-        User user = User.FromVo(vo);
+        User user = User.fromVo(vo);
         if (user.getId() == null)
             return false;
         userDaService.UpdateUser(user);
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserVo GetUserByUsername(String username) {
-        return userDaService.GetUserByUsername(username).GetVo();
+        return userDaService.GetUserByUsername(username).getVo();
     }
 
     @Override
