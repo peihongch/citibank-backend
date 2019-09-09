@@ -17,17 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/questionnaire")
 public class QuestionnaireController {
     @PostMapping
-    public ResponseBean<Object> SubmitQuestionnaire(@RequestBody QuestionnaireVo vo) {
+    public ResponseBean<Object> submitQuestionnaire(@RequestBody QuestionnaireVo vo) {
         return new ResponseBean<>(true, null);
     }
 
     @PutMapping
-    public ResponseBean<Object> UpdateQuestoinnaire(@RequestBody QuestionnaireVo vo) {
+    public ResponseBean<Object> updateQuestoinnaire(@RequestBody QuestionnaireVo vo) {
         return new ResponseBean<>(true, null);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseBean<QuestionnaireVo> GetQuestionnaire(@PathVariable Long param) {
+    public ResponseBean<QuestionnaireVo> getQuestionnaire(@PathVariable Long param) {
         return new ResponseBean<>(true, null);
     }
 }

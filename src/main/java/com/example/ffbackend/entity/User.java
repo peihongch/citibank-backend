@@ -1,6 +1,5 @@
 package com.example.ffbackend.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +16,6 @@ import lombok.Data;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     Integer id;
 
     String username;
@@ -35,7 +33,7 @@ public class User {
     String investmentPreference;
     String address;
 
-    public static User FromVo (UserVo vo) {
+    public static User fromVo (UserVo vo) {
         User res = new User ();
         res.setId(vo.getId ());
         res.setUsername(vo.getUsername());
@@ -49,7 +47,7 @@ public class User {
         // TODO: 
         return res;
     }
-    public UserVo GetVo () {
+    public UserVo getVo () {
         UserVo vo = new UserVo();
         vo.setId(id);
         vo.setUsername(username);
