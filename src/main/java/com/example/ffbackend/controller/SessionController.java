@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/session")
 public class SessionController {
     @PostMapping
-    public ResponseBean<String> CreateSession(@RequestParam(value = "username") String username,
+    public ResponseBean<String> createSession(@RequestParam(value = "username") String username,
             @RequestParam(value = "pwd") String pwd) {
         return new ResponseBean<String>(true, "sample_session");
     }
 
     @DeleteMapping(value = "/{session}")
-    public ResponseBean<Object> DeleteSession(@PathVariable("session") String session) {
+    public ResponseBean<Object> deleteSession(@PathVariable("session") String session) {
         return new ResponseBean<>(true, null);
     }
 }

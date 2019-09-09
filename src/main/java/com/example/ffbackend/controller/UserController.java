@@ -24,7 +24,7 @@ public class UserController {
     @Autowired
     UserService userService;
     @PostMapping
-    public ResponseBean<Object> Register(@RequestBody UserVo vo) {
+    public ResponseBean<Object> register(@RequestBody UserVo vo) {
         // UserVo oriUser = userService.GetUserByUsername(vo.getUsername());
         // if (oriUser!=null)
         //     throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
@@ -33,13 +33,13 @@ public class UserController {
     }
 
     @PutMapping(value = "/{username}")
-    public ResponseBean<Object> UpdateUser(@PathVariable("username") String username, @RequestBody UserVo vo) {
+    public ResponseBean<Object> updateUser(@PathVariable("username") String username, @RequestBody UserVo vo) {
         userService.UpdateUser(vo);
         return new ResponseBean<>(true, null);
     }
 
     @GetMapping(value = "/{username}")
-    public ResponseBean<UserVo> GetUser(@PathVariable("username") String username) {
+    public ResponseBean<UserVo> getUser(@PathVariable("username") String username) {
         UserVo userVo = userService.GetUserByUsername(username);
         if (userVo == null)
             throw new MyRuntimeException(ResponseEnums.NO_USER_EXIST);
@@ -47,19 +47,19 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/{username}")
-    public ResponseBean<Object> DeleteUser(@PathVariable("username") String username) {
+    public ResponseBean<Object> deleteUser(@PathVariable("username") String username) {
         userService.DeleteUser(username);
         return new ResponseBean<>(true, null);
     }
 
     @PostMapping(value = "/email-captcha")
-    public ResponseBean<Object> CreateEmailCaptcha(@RequestParam(value = "email") String email) {
+    public ResponseBean<Object> createEmailCaptcha(@RequestParam(value = "email") String email) {
         userService.InsertEmailCaptcha(email);
         return new ResponseBean<>(true, null);
     }
 
     @PostMapping(value = "/phone-captcha")
-    public ResponseBean<Object> CreatePhoneCaptcha(@RequestParam(value = "phone") String phone) {
+    public ResponseBean<Object> createPhoneCaptcha(@RequestParam(value = "phone") String phone) {
         userService.InsertPhoneCaptcha(phone);
         return new ResponseBean<>(true, null);
     }
