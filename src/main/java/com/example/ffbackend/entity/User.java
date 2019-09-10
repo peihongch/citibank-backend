@@ -33,10 +33,11 @@ public class User {
     String investmentPreference;
     String address;
 
-    public static User fromVo (UserVo vo) {
-        User res = new User ();
-        res.setId(vo.getId ());
+    public static User fromVo(UserVo vo) {
+        User res = new User();
+        res.setId(vo.getId());
         res.setUsername(vo.getUsername());
+        res.setPassword(vo.getPassword());
         res.setEmail(vo.getEmail());
         res.setPhone(vo.getPhone());
         res.setGender(vo.getGender());
@@ -44,16 +45,17 @@ public class User {
         res.setSignature(vo.getSignature());
         res.setFund(vo.getFund());
         res.setInvestmentTime(vo.getInvestmentTime());
-        // TODO: 
+        // TODO:
         return res;
     }
-    public UserVo getVo () {
+
+    public UserVo getVo() {
         UserVo vo = new UserVo();
         vo.setId(id);
         vo.setUsername(username);
         vo.setEmail(email);
         vo.setPhone(phone);
-        // TODO: 
+        // TODO:
         return vo;
     }
 }

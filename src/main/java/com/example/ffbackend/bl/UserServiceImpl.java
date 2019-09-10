@@ -7,6 +7,8 @@ import java.util.Random;
 
 import com.example.ffbackend.da.UserDaService;
 import com.example.ffbackend.entity.User;
+import com.example.ffbackend.exception.MyRuntimeException;
+import com.example.ffbackend.vo.ResponseEnums;
 import com.example.ffbackend.vo.UserVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean InsertUser(UserVo vo) {
+        var oriUser = userDaService.GetUserByUsername(vo.getUsername());
+        if (oriUser != null)
+            throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
         User user = User.fromVo(vo);
         user.setId(null);
         userDaService.InsertUser(user);
