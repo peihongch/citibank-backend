@@ -1,0 +1,81 @@
+// 条件触发
+// 文档：https://github.com/qijiale76/finance/blob/master/%E5%AE%9A%E6%9C%9F%E8%B0%83%E6%95%B4%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91/%E5%AE%9A%E6%9C%9F%E8%B0%83%E6%95%B4%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E.md
+
+syntax = "proto3";
+
+service ConditionalTrigger{
+    rpc StockTurnoverRate(StockTurnoverRateInput) returns (StockTurnoverRateOutput){}
+
+    rpc StockMacd(StockMacdInput) returns (StockMacdOutput){}
+
+    rpc StockRsi(StockRsiInput) returns (StockRsiOutput) {}
+
+    rpc StockKdj(StockKdjInput) returns (StockKdjOutput){}
+
+    rpc StockRoc(StockRocInput) returns (StockRocOutput){}
+
+    rpc StockSharpe(StockSharpeInput) returns (StockSharpeOutput){}
+
+}
+
+message StockTurnoverRateInput{
+    string stock_code = 1;
+    float top = 2;
+    float bottom = 3;
+}
+
+message StockTurnoverRateOutput{
+    bool value = 1;
+}
+
+message StockMacdInput{
+    string stock_code = 1;
+    float top = 2;
+    float bottom = 3;
+}
+
+message StockMacdOutput{
+    bool value = 2;
+}
+
+message StockRsiInput{
+    string stock_code = 1;
+    int32 rsi_time = 2;
+    float top = 3;
+    float bottom = 4;
+}
+
+message StockRsiOutput{
+    bool value = 1;
+}
+
+message StockKdjInput{
+    string stock_code = 1;
+    float K = 2;
+    float D = 3;
+    float J = 4;
+}
+
+message StockKdjOutput{
+    bool value = 1;
+}
+
+message StockRocInput{
+    string stock_code = 1;
+    int32 time = 2;
+    float top = 3;
+    float bottom = 4;
+}
+
+message StockRocOutput{
+    bool value = 1;
+}
+
+message StockSharpeInput{
+    string stock_code = 1;
+    float setting = 2;
+}
+
+message StockSharpeOutput{
+    bool value = 1;
+}

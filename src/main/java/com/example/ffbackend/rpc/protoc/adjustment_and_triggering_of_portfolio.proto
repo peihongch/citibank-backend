@@ -1,0 +1,35 @@
+// 投资组合类的调整和触发
+// 文档：https://github.com/qijiale76/finance/blob/master/%E5%AE%9A%E6%9C%9F%E8%B0%83%E6%95%B4%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91/%E5%AE%9A%E6%9C%9F%E8%B0%83%E6%95%B4%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E.md
+
+syntax = "proto3";
+
+service AdjustmentAndTriggeringOfPortfolio{
+    rpc PortFolioVar(PortFolioInput) returns (PortFolioOutput){}
+    rpc PortfolioVolatility(PortFolioInput) returns (PortFolioOutput){}
+    rpc PortfolioDiff(PortFolioInput) returns (PortFolioOutput){}
+}
+
+message PortFolioInput{
+    string price = 1;
+    float setting = 2;
+}
+
+message PortFolioOutput{
+    bool value = 1;
+}
+//
+//message PortfolioVolatilityInput{
+//
+//}
+//
+//message PortfolioVolatilityOutput{
+//    bool value = 1;
+//}
+//
+//message PortfolioDiffInput{
+//
+//}
+//
+//message PortfolioDiffOutput{
+//    bool value = 1;
+//}
