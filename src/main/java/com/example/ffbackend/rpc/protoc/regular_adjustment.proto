@@ -1,0 +1,55 @@
+// 定期调整
+// 文档：https://github.com/qijiale76/finance/blob/master/%E5%AE%9A%E6%9C%9F%E8%B0%83%E6%95%B4%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91/%E5%AE%9A%E6%9C%9F%E8%B0%83%E6%95%B4%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E.md
+
+syntax = "proto3";
+
+service RegularAdjustment{
+    rpc StockLeastPosition(StockLeastPositionInput) returns (StockLeastPositionOutput){}
+
+    rpc StockVolatility(StockVolatilityInput) returns (StockVolatilityOutput){}
+
+    rpc StockChange(StockChangeInput) returns (StockChangeOutput){}
+
+    rpc StockMeanReturn(StockMeanReturnInput) returns (StockMeanReturnOutput){}
+}
+
+message StockLeastPositionInput{
+    string stock_code = 1;
+    int32 user_position = 2;
+    int32 setting = 3;
+}
+
+message StockLeastPositionOutput{
+    int32 value = 1;
+}
+
+message StockVolatilityInput{
+    string stock_code = 1;
+    int32 time = 2;
+    float setting  = 3;
+}
+
+message StockVolatilityOutput{
+    bool value = 1;
+}
+
+message StockChangeInput{
+    string stock_code = 1;
+    int32 time = 2;
+    float top = 3;
+    float bottom = 4;
+}
+
+message StockChangeOutput{
+    bool value = 1;
+}
+
+message StockMeanReturnInput{
+    string stock_code = 1;
+    int32 time = 2;
+    float setting  = 3;
+}
+
+message StockMeanReturnOutput{
+    bool value = 1;
+}
