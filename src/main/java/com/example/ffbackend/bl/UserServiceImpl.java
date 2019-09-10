@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
+import lombok.var;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -47,7 +49,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserVo GetUserByUsername(String username) {
-        return userDaService.GetUserByUsername(username).getVo();
+        var po = userDaService.GetUserByUsername(username);
+        if (po != null)
+            return po.getVo();
+        return null;
     }
 
     @Override
