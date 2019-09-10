@@ -3,6 +3,9 @@
 
 syntax = "proto3";
 
+option java_package = "com.example.ffbackend.rpc.proto";
+option java_outer_classname = "OptionFuturesProto";
+
 service OptionFutures{
     //=========================================================
     //期权部分函数文档

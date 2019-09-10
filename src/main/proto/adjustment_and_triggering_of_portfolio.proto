@@ -3,6 +3,9 @@
 //  python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. adjustment_and_triggering_of_portfolio.proto
 syntax = "proto3";
 
+option java_package = "com.example.ffbackend.rpc.proto";
+option java_outer_classname = "AdjustmentAndTriggeringOfPortfolioProto";
+
 service AdjustmentAndTriggeringOfPortfolio{
     rpc PortFolioVar(PortFolioInput) returns (PortFolioOutput){}
     rpc PortfolioVolatility(PortFolioInput) returns (PortFolioOutput){}

@@ -10,3 +10,9 @@ spring:
       naming:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
     show-sql: true
+
+rpc:
+  host:
+    127.0.0.1
+  port:
+    67

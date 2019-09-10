@@ -3,6 +3,9 @@
 //  python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. conditional_trigger.proto
 syntax = "proto3";
 
+option java_package = "com.example.ffbackend.rpc.proto";
+option java_outer_classname = "ConditionalTriggerProto";
+
 service ConditionalTrigger{
     rpc StockTurnoverRate(StockTurnoverRateInput) returns (StockTurnoverRateOutput){}
 

@@ -4,6 +4,9 @@
 
 syntax = "proto3";
 
+option java_package = "com.example.ffbackend.rpc.proto";
+option java_outer_classname = "RegularAdjustmentProto";
+
 service RegularAdjustment{
     rpc StockLeastPosition(StockLeastPositionInput) returns (StockLeastPositionOutput){}
 
