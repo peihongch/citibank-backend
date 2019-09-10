@@ -1,0 +1,28 @@
+// 花旗API
+// python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. citibank_api.proto
+
+syntax = "proto3";
+
+service CitibankApi{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

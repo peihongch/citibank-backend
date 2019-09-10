@@ -1,0 +1,28 @@
+// 尾部风险
+// python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. tail_risk.proto
+
+syntax = "proto3";
+
+service TailRisk{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
