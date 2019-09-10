@@ -34,7 +34,6 @@ public class PortfolioController {
 
     @PutMapping(value="/{id}")
     public ResponseBean<Object> updatePortfolio(@PathVariable String id, @RequestBody PortfolioVo vo) {
-        
         return new ResponseBean<>(true, null);
     }
 }

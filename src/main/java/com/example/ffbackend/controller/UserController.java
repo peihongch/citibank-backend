@@ -25,17 +25,14 @@ public class UserController {
     UserService userService;
     @PostMapping
     public ResponseBean<Object> register(@RequestBody UserVo vo) {
-        // UserVo oriUser = userService.GetUserByUsername(vo.getUsername());
-        // if (oriUser!=null)
-        //     throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
         userService.InsertUser(vo);
-        return new ResponseBean<>(true, null);
+        return new ResponseBean<>(true, (Object)null);
     }
 
     @PutMapping(value = "/{username}")
     public ResponseBean<Object> updateUser(@PathVariable("username") String username, @RequestBody UserVo vo) {
         userService.UpdateUser(vo);
-        return new ResponseBean<>(true, null);
+        return new ResponseBean<>(true, (Object)null);
     }
 
     @GetMapping(value = "/{username}")
@@ -49,18 +46,18 @@ public class UserController {
     @DeleteMapping(value = "/{username}")
     public ResponseBean<Object> deleteUser(@PathVariable("username") String username) {
         userService.DeleteUser(username);
-        return new ResponseBean<>(true, null);
+        return new ResponseBean<>(true, (Object)null);
     }
 
     @PostMapping(value = "/email-captcha")
     public ResponseBean<Object> createEmailCaptcha(@RequestParam(value = "email") String email) {
         userService.InsertEmailCaptcha(email);
-        return new ResponseBean<>(true, null);
+        return new ResponseBean<>(true, (Object)null);
     }
 
     @PostMapping(value = "/phone-captcha")
     public ResponseBean<Object> createPhoneCaptcha(@RequestParam(value = "phone") String phone) {
         userService.InsertPhoneCaptcha(phone);
-        return new ResponseBean<>(true, null);
+        return new ResponseBean<>(true, (Object)null);
     }
 }
