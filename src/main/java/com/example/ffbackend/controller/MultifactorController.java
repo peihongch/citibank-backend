@@ -29,9 +29,9 @@ public class MultifactorController {
     @GetMapping(value = "/{user-id}/news")
     public ResponseBean<List<NewsVo>> getNews(@PathVariable("user-id") Integer userId) {
         var newsList = new ArrayList<NewsVo>();
-        newsList.add(new NewsVo("陶园二舍七楼失火，火势蔓延到食堂", "www.baidu.com", new Date()));
-        newsList.add(new NewsVo("南大鼓楼校区教学楼爆炸", "www.baidu.com", new Date()));
-        newsList.add(new NewsVo("鼓楼校区三食堂墙体裂开", "www.baidu.com", new Date()));
+        newsList.add(new NewsVo("陶园二舍七楼失火，火势蔓延到食堂", "https://www.baidu.com", new Date()));
+        newsList.add(new NewsVo("南大鼓楼校区教学楼爆炸", "https://www.baidu.com", new Date()));
+        newsList.add(new NewsVo("鼓楼校区三食堂墙体裂开", "https://www.baidu.com", new Date()));
 
         return new ResponseBean<>(true, newsList);
     }
