@@ -1,15 +1,21 @@
 package com.example.ffbackend.controller;
 
+import com.example.ffbackend.bl.PostService;
 import com.example.ffbackend.vo.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/community")
 public class CommunityController {
+    @Autowired
+    PostService postService;
+
     @GetMapping(value={"/post/myPosts"})
-    public ResponseBean<PostVo[]> getMyPosts(@RequestBody String userId){
-        System.out.println(userId);
-        return null;
+    public ResponseBean<List<PostVo>> getMyPosts(@RequestBody Integer userId){
+        return new ResponseBean<>(true, postService.getPostsByUserId(userId));
     }
 
     @GetMapping(value={"/post/view"})
