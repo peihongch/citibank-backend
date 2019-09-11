@@ -24,7 +24,7 @@ message StockLeastPositionInput{
 }
 
 message StockLeastPositionOutput{
-    int32 value = 1;
+    bool value = 1;
 }
 
 message StockVolatilityInput{

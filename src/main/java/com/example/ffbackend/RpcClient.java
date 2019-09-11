@@ -38,6 +38,11 @@ public class RpcClient {
     }
 
     @Bean
+    public ConditionalTriggerGrpc.ConditionalTriggerBlockingStub conditionalTriggerBlockingStub(){
+        return ConditionalTriggerGrpc.newBlockingStub(managedChannel());
+    }
+
+    @Bean
     public DatabaseGrpc.DatabaseBlockingStub databaseBlockingStub() {
         return DatabaseGrpc.newBlockingStub(managedChannel());
     }
