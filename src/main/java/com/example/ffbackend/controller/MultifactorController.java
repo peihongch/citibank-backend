@@ -3,6 +3,13 @@ package com.example.ffbackend.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.var;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.example.ffbackend.vo.NewsVo;
 import com.example.ffbackend.vo.ResponseBean;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,24 +20,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/user")
 public class MultifactorController {
     @GetMapping(value = "/{user-id}/multifactor-details")
-    public ResponseBean<Object> getMultifactorDetails(@PathVariable("user-id") Integer userId, @RequestParam("code") String[] codes, @RequestParam("share") Double[] shares) {
+    public ResponseBean<Object> getMultifactorDetails(@PathVariable("user-id") Integer userId,
+            @RequestParam("code") String[] codes, @RequestParam("share") Double[] shares) {
         // TODO: vo没写
         return new ResponseBean<>(true, (Object) null);
     }
 
-    @GetMapping(value="/{user-id}/news")
-    public ResponseBean<Object> getNews(@PathVariable("user-id") Integer userId) {
-        // TODO: vo没写
-        return new ResponseBean<>(true, (Object) null);
+    @GetMapping(value = "/{user-id}/news")
+    public ResponseBean<List<NewsVo>> getNews(@PathVariable("user-id") Integer userId) {
+        var newsList = new ArrayList<NewsVo>();
+        newsList.add(new NewsVo("陶园二舍七楼失火，火势蔓延到食堂", "www.baidu.com", new Date()));
+        newsList.add(new NewsVo("南大鼓楼校区教学楼爆炸", "www.baidu.com", new Date()));
+        newsList.add(new NewsVo("鼓楼校区三食堂墙体裂开", "www.baidu.com", new Date()));
+
+        return new ResponseBean<>(true, newsList);
     }
 
-    @GetMapping(value="/{user-id}/stock-tips")
+    @GetMapping(value = "/{user-id}/stock-tips")
     public ResponseBean<Object> getStockTips(@PathVariable("user-id") Integer userId) {
         // TODO: vo没写
         return new ResponseBean<>(true, (Object) null);
     }
 
-    @GetMapping(value="/{user-id}/multifactor-recommend")
+    @GetMapping(value = "/{user-id}/multifactor-recommend")
     public ResponseBean<Object> getMultifactorRecommend(@PathVariable("user-id") Integer userId) {
         // TODO: vo没写
         return new ResponseBean<>(true, (Object) null);
