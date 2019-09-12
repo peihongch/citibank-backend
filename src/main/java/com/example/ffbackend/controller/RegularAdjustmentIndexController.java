@@ -10,17 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.ffbackend.stubs.RegularAdjustmentIndex.UserIndex;
+
 @RestController
 @RequestMapping("/user")
 public class RegularAdjustmentIndexController {
+
     @GetMapping(value = "/{user-id}/regular-adjustment-index")
-    public ResponseBean<RegularAdjustmentIndexVo> getRegularAdjustmentIndex(@PathVariable("user-id") Integer userId) {
-        return new ResponseBean<>(true, (RegularAdjustmentIndexVo) null);
+    public ResponseBean<List<RegularAdjustmentIndexVo>> getRegularAdjustmentIndex(@PathVariable("user-id") Integer userId) {
+        return new ResponseBean<>(true, UserIndex );
     }
 
-    @PutMapping(value = "/{user-id}/regular-adjustment-index")
-    public ResponseBean<Object> putRegularAdjustmentIndex(@PathVariable("user-id") String userId,
-            @RequestBody RegularAdjustmentIndexVo vo) {
-        return new ResponseBean<>(true, (Object) null);
-    }
+//    @PutMapping(value = "/{user-id}/regular-adjustment-index")
+//    public ResponseBean<Object> putRegularAdjustmentIndex(@PathVariable("user-id") String userId,
+//            @RequestBody RegularAdjustmentIndexVo vo) {
+//        return new ResponseBean<>(true, (Object) null);
+//    }
 }
+
