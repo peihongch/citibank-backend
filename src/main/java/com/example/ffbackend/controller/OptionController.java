@@ -12,6 +12,8 @@ import com.example.ffbackend.vo.ResponseBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/user")
@@ -29,6 +31,11 @@ public class OptionController {
     @GetMapping(value = "/{user-id}/option/strategy-params")
     public ResponseBean<OptionStrategyParamsVo> getStrategyParams(@PathVariable("user-id") Integer userId) {
         return new ResponseBean<>(true, new OptionStrategyParamsVo());
+    }
+
+    @PostMapping(value = "/{user-id}/option/strategy-params")
+    public ResponseBean<Object> postMethodName(@RequestBody OptionStrategyParamsVo vo) {
+        return new ResponseBean<>(true, (Object) null);
     }
 
     @GetMapping(value = "/{user-id}/option/key-point")
