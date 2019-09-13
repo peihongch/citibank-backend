@@ -1,6 +1,7 @@
 package com.example.ffbackend.controller;
 
 import com.example.ffbackend.vo.ResponseBean;
+import com.example.ffbackend.vo.TransactionVo;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,19 +36,19 @@ public class InvestmentHistoryController {
     }
 
     /**
-     * 获取累计历史记录
+     * sharp比
      */
-    @GetMapping(value = "/{user-id}/transacion-history")
-    public ResponseBean<Double> getAccumulatedHistory(@PathVariable("user-id") Integer userId) {
+    @GetMapping(value = "/{user-id]/sharp-ratio")
+    public ResponseBean<Double> getSharpRatio(@PathVariable("user-id") Integer userId) {
         return new ResponseBean<>(true, -1.0);
     }
+
 
     /**
      * 获取累计历史记录
      */
-    @GetMapping(value = "/{user-id]/sharp-ratio")
-    public ResponseBean<Double> getAccumulatedSharpRatio(@PathVariable("user-id") Integer userId) {
-        return new ResponseBean<>(true, -1.0);
+    @GetMapping(value = "/{user-id}/transacion-history")
+    public ResponseBean<TransactionVo> getAccumulatedHistory(@PathVariable("user-id") Integer userId) {
+        return new ResponseBean<>(true, new TransactionVo());
     }
-
 }
