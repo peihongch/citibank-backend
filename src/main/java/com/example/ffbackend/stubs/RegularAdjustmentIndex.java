@@ -3,7 +3,6 @@ package com.example.ffbackend.stubs;
 import com.example.ffbackend.vo.RegularAdjustmentIndexVo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RegularAdjustmentIndex {
     public static ArrayList<RegularAdjustmentIndexVo> UserIndex = new ArrayList<RegularAdjustmentIndexVo>(){{

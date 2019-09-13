@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.ffbackend.bl.TransactionService;
-import com.example.ffbackend.entity.Transaction;
 import com.example.ffbackend.vo.ResponseBean;
 import com.example.ffbackend.vo.TradeVo;
 import com.example.ffbackend.vo.TransactionVo;

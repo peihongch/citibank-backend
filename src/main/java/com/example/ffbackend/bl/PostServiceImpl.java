@@ -2,7 +2,6 @@ package com.example.ffbackend.bl;
 
 import com.example.ffbackend.da.PostDaService;
 import com.example.ffbackend.vo.PostVo;
-import com.example.ffbackend.vo.StockVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

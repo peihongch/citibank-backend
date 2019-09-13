@@ -1,8 +1,11 @@
 package com.example.ffbackend.repo;
 
-import com.example.ffbackend.entity.Portfolio;
+import java.util.List;
+
+import com.example.ffbackend.entity.StockInPortfolio;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PortfolioRepo extends JpaRepository<Portfolio, Integer> {
+public interface PortfolioRepo extends JpaRepository<StockInPortfolio, Integer> {
+    List<StockInPortfolio> findByUserId (Integer userId);
 }

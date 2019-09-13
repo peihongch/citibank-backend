@@ -1,5 +1,7 @@
 package com.example.ffbackend.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +25,7 @@ public class User {
     String email;
     String phone;
     Boolean gender;
-    // Date birthday; TODO:
+    Date birthday;
     String career;
     String signature;
     Double fund;
