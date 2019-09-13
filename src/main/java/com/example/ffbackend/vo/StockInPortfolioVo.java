@@ -11,7 +11,7 @@ public class StockInPortfolioVo {
     Integer num;
     Double money;
 
-    public StockInPortfolio getPo (Integer userId) {
+    public StockInPortfolio createPo (Integer userId) {
         StockInPortfolio res = new StockInPortfolio();
         res.setId(id);
         res.setUserId(userId);

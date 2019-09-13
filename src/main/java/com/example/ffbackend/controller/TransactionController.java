@@ -39,7 +39,7 @@ public class TransactionController {
         var entities = bl.getTransactions(userId);
         var vos = new ArrayList<TransactionVo>(entities.size());
         for (var entity : entities)
-            vos.add(TransactionVo.getVo(entity));
+            vos.add(TransactionVo.createVo(entity));
         return new ResponseBean<>(true, vos);
     }
 }

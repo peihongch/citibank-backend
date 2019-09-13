@@ -17,7 +17,7 @@ public class TransactionVo {
     Double cost; // 总价
     Double commission;
 
-    public static TransactionVo getVo(Transaction po) {
+    public static TransactionVo createVo(Transaction po) {
         TransactionVo res = new TransactionVo();
         res.setDate(po.getDate());
         res.setCode(po.getCode());

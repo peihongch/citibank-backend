@@ -30,7 +30,7 @@ public class UserService {
         var oriUser = userDaService.GetUserByUsername(vo.getUsername());
         if (oriUser != null)
             throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
-        User user = vo.getPo();
+        User user = vo.createPo();
         user.setId(null);
         userDaService.InsertUser(user);
         return true;
@@ -42,7 +42,7 @@ public class UserService {
     }
 
     public boolean UpdateUser(UserVo vo) {
-        User user = vo.getPo();
+        User user = vo.createPo();
         if (user.getId() == null)
             return false;
         userDaService.UpdateUser(user);
@@ -52,7 +52,7 @@ public class UserService {
     public UserVo GetUserByUsername(String username) {
         var po = userDaService.GetUserByUsername(username);
         if (po != null)
-            return po.getVo();
+            return po.createVo();
         return null;
     }
 

@@ -38,7 +38,7 @@ public class User {
     String riskPreference;
     String investmentPreference;
 
-    public UserVo getVo() {
+    public UserVo createVo() {
         UserVo vo = new UserVo();
         vo.setId(id);
         vo.setUsername(username);

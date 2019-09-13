@@ -26,7 +26,7 @@ public class PortfolioService {
 
     public int insertPortfolio(Integer userId, StockInPortfolioVo vo) {
         vo.setMoney(stockService.getStockPriceByCode(vo.getCode()));
-        var po = da.insertPortfolio(vo.getPo(userId));
+        var po = da.insertPortfolio(vo.createPo(userId));
         if (po == null)
             throw new MyRuntimeException(ResponseEnums.DATABASE_ERROR);
         return po.getId();
@@ -38,7 +38,7 @@ public class PortfolioService {
     }
 
     public boolean updatePortfolio(Integer userId, StockInPortfolioVo vo) {
-        var po = da.insertPortfolio(vo.getPo(userId));
+        var po = da.insertPortfolio(vo.createPo(userId));
         return po != null;
     }
 
