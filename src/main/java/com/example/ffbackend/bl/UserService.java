@@ -30,7 +30,7 @@ public class UserService {
         var oriUser = userDaService.GetUserByUsername(vo.getUsername());
         if (oriUser != null)
             throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
-        User user = User.fromVo(vo);
+        User user = vo.getPo();
         user.setId(null);
         userDaService.InsertUser(user);
         return true;
@@ -42,7 +42,7 @@ public class UserService {
     }
 
     public boolean UpdateUser(UserVo vo) {
-        User user = User.fromVo(vo);
+        User user = vo.getPo();
         if (user.getId() == null)
             return false;
         userDaService.UpdateUser(user);
