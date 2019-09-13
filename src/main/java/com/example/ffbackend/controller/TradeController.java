@@ -8,6 +8,7 @@ import com.example.ffbackend.vo.ResponseBean;
 import com.example.ffbackend.vo.TradeVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -18,8 +19,8 @@ public class TradeController {
     TradeService bl;
 
     @PostMapping(value = "/{user-id}/trade")
-    public ResponseBean<Object> postTrade(@RequestBody TradeVo vo) {
-        bl.CreateTrade(vo);
+    public ResponseBean<Object> postTrade(@PathVariable("user-id") Integer userId, @RequestBody TradeVo vo) {
+        bl.CreateTrade(userId, vo);
         return new ResponseBean<>(true, (Object) null);
     }
 

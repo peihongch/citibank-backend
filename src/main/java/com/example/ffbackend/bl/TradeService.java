@@ -11,7 +11,7 @@ public class TradeService {
     @Autowired
     TransactionDaService da;
 
-    public boolean CreateTrade (TradeVo vo) {
+    public boolean CreateTrade (Integer userId, TradeVo vo) {
         return true;
     }
 }
