@@ -29,7 +29,7 @@ public class RegularAdjustmentController {
     @PutMapping(value = "/{user-id}/regular-adjustment/indexs")
     public ResponseBean<Object> putRegularAdjustmentIndexs(@PathVariable("user-id") Integer userId,
             @RequestBody List<RegularAdjustmentIndexVo> vo) {
-        service.updateIndex(userId, vo);
+        service.updateIndexs(userId, vo);
         return new ResponseBean<>(true, (Object) null);
     }
 
