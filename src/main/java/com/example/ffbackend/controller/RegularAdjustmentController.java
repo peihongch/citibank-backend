@@ -23,8 +23,19 @@ public class RegularAdjustmentController {
         return new ResponseBean<>(true, new ArrayList<>());
     }
 
-    @PutMapping(value = "/{user-id}/regular-adjustment-index")
+    @PutMapping(value = "/{user-id}/regular-adjustment/indexs")
     public ResponseBean<Object> putRegularAdjustmentIndexs(@PathVariable("user-id") String userId,
+            @RequestBody RegularAdjustmentIndexVo vo) {
+        return new ResponseBean<>(true, (Object) null);
+    }
+
+    @GetMapping(value = "/{user-id}/regular-adjustment/cycle-time")
+    public ResponseBean<Double> getRegularAdjustmentCycleTime(@PathVariable("user-id") Integer userId) {
+        return new ResponseBean<>(true, 10.0);
+    }
+
+    @PutMapping(value = "/{user-id}/regular-adjustment/cycle-time")
+    public ResponseBean<Object> putRegularAdjustmentCycleTime(@PathVariable("user-id") String userId,
             @RequestBody RegularAdjustmentIndexVo vo) {
         return new ResponseBean<>(true, (Object) null);
     }

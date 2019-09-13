@@ -21,12 +21,14 @@ public class ConditionTriggerController {
     @GetMapping(value = "/{user-id}/condition-trigger/indexs")
     public ResponseBean<List<ConditionTriggerIndexVo>> getConditionTriggerIndexs(
             @PathVariable("user-id") Integer userId) {
+        // TODO: service
         return new ResponseBean<>(true, new ArrayList<>());
     }
 
     @PutMapping(value = "/{user-id}/condition-trigger/indexs")
     public ResponseBean<Object> putConditionTriggerIndexs(@PathVariable("user-id") String userId,
             @RequestBody RegularAdjustmentIndexVo vo) {
+        // TODO: service
         return new ResponseBean<>(true, (Object) null);
     }
 }
