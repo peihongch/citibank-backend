@@ -26,9 +26,9 @@ public class RegularAdjustmentService {
     }
 
     public void updateIndexs(Integer userId, List<RegularAdjustmentIndexVo> vo) {
-        var pos = new ArrayList<RegularAdjustmentIndex> (vo.size());
+        var pos = new ArrayList<RegularAdjustmentIndex>(vo.size());
         for (var voIndex : vo)
             pos.add(voIndex.createPo(userId));
-        da.updateIndexs(pos);
+        da.updateIndexs(userId, pos);
     }
 }
