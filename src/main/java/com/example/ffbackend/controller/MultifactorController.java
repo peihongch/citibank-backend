@@ -33,6 +33,7 @@ public class MultifactorController {
     @GetMapping(value = "/{user-id}/stock-tips")
     public ResponseBean<List<StockTipVo>> getStockTips(@PathVariable("user-id") Integer userId) {
         var tips = new ArrayList<StockTipVo>();
+        // TODO: 对接rpc
         tips.add(new StockTipVo("203040", "南大食堂"));
         tips.add(new StockTipVo("233046", "沛东蟹黄煲"));
         tips.add(new StockTipVo("203040", "黄林动物园"));
@@ -41,7 +42,7 @@ public class MultifactorController {
 
     @GetMapping(value = "/{user-id}/multifactor-details")
     public ResponseBean<MultifactorDetailsVo> getMultifactorDetails(@PathVariable("user-id") Integer userId) {
-        // TODO: vo没写
+        // TODO: 对接rpc
         return new ResponseBean<>(true, (MultifactorDetailsVo) null);
     }
 }
