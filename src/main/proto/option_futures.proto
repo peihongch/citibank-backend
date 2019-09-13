@@ -6,64 +6,316 @@ syntax = "proto3";
 option java_package = "com.example.ffbackend.rpc.proto";
 option java_outer_classname = "OptionFuturesProto";
 
-service OptionFutures{
+service OptionFutures {
     //=========================================================
     //期权部分函数文档
     //=========================================================
-    rpc PortfolioDelta(PortfolioDeltaInput) returns (PortfolioDeltaOutput){}
+    rpc PortfolioDelta (PortfolioDeltaInput) returns (PortfolioDeltaOutput) {
+    }
 
-    rpc PortfolioGamma(PortfolioGammaInput) returns (PortfolioGammaOutput){}
+    rpc PortfolioGamma (PortfolioGammaInput) returns (PortfolioGammaOutput) {
+    }
 
-    rpc PortfolioVega(PortfolioVegaInput) returns (PortfolioVegaOutput){}
+    rpc PortfolioVega (PortfolioVegaInput) returns (PortfolioVegaOutput) {
+    }
 
-    rpc PortfolioTheta(PortfolioThetaInput) returns (PortfolioThetaOutput){}
+    rpc PortfolioTheta (PortfolioThetaInput) returns (PortfolioThetaOutput) {
+    }
 
+    rpc PortfolioRho (PortfolioRhoInput) returns (PortfolioRhoOutput) {
+    }
 
+    rpc PortfolioVolatility (PortfolioVolatilityInput) returns (PortfolioVolatilityOutput) {
+    }
+
+    rpc PortfolioEarningRate (PortfolioEarningRateInput) returns (PortfolioEarningRateOutput) {
+    }
+
+    rpc RetrainDeltaModel (RetrainDeltaModelInput) returns (RetrainDeltaModelOutput) {
+    }
+
+    rpc RetrainGammaModel (RetrainGammaModelInput) returns (RetrainGammaModelOutput) {
+    }
+
+    rpc FitDelta (FitDeltaInput) returns (FitDeltaOutput) {
+    }
+
+    rpc FitGamma (FitGammaInput) returns (FitGammaOutput) {
+    }
+
+    rpc CalOptionAmt (CalOptionAmtInput) returns (CalOptionAmtOutput) {
+    }
+
+    rpc GenerateRecommendOptionDelta (GenerateRecommendOptionDeltaInput) returns (GenerateRecommendOptionDeltaOutput) {
+    }
+
+    rpc GenerateRecommendOptionGamma (GenerateRecommendOptionGammaInput) returns (GenerateRecommendOptionGammaOutput) {
+    }
 
     //=========================================================
     //期货部分函数文档
     //=========================================================
+
+    rpc PortfolioBeta (PortfolioBetaInput) returns (PortfolioBetaOutput) {
+    }
+
+    rpc RetrainBetaModel (RetrainBetaModelInput) returns (RetrainBetaModelOutput) {
+    }
+
+    rpc FitBeta (FitBetaInput) returns (FitBetaOutput) {
+    }
+
+    rpc CalFutureAmt (CalFutureAmtInput) returns (CalFutureAmtOutput) {
+    }
+
+    rpc GenerateRecommendFuture (GenerateRecommendFutureInput) returns (GenerateRecommendFutureOutput) {
+    }
 }
 
 //=========================================================
 //期权部分函数文档
 //=========================================================
 
-message PortfolioDeltaInput{
-
+message PortfolioDeltaInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
 }
 
-message PortfolioDeltaOutput{
-
+message PortfolioDeltaOutput {
+    repeated string value = 1;
 }
 
-message PortfolioGammaInput{
-
+message PortfolioGammaInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
 }
 
-message PortfolioGammaOutput{
-
+message PortfolioGammaOutput {
+    repeated string value = 1;
 }
 
-message PortfolioVegaInput{
-
+message PortfolioVegaInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
 }
 
-message PortfolioVegaOutput{
-
+message PortfolioVegaOutput {
+    repeated string value = 1;
 }
 
-message PortfolioThetaInput{
-
+message PortfolioThetaInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
 }
 
-message PortfolioThetaOutput{
-
+message PortfolioThetaOutput {
+    repeated string value = 1;
 }
 
+message PortfolioRhoInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
+}
 
+message PortfolioRhoOutput {
+    repeated string value = 1;
+}
 
+message PortfolioVolatilityInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
+    int32 time = 6;
+}
 
+message PortfolioVolatilityOutput {
+    repeated string value = 1;
+}
+
+message PortfolioEarningRateInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
+    int32 time = 6;
+}
+
+message PortfolioEarningRateOutput {
+    repeated string value = 1;
+}
+
+message RetrainDeltaModelInput {
+    string protfolio_id = 1;
+    repeated string asset_id = 2;
+    repeated string asset_amount = 3;
+    float cash = 4;
+    string options = 5;
+}
+
+// 无效返回值，占位符
+message RetrainDeltaModelOutput {
+    string value = 1;
+}
+
+message RetrainGammaModelInput {
+    string protfolio_id = 1;
+    repeated string asset_id = 2;
+    repeated string asset_amount = 3;
+    float cash = 4;
+    string options1 = 5;
+    string options2 = 6;
+}
+
+// 无效返回值，占位符
+message RetrainGammaModelOutput {
+    string value = 1;
+}
+
+message FitDeltaInput {
+    string protfolio_id = 1;
+    repeated string asset_id = 2;
+    repeated string asset_amount = 3;
+    float cash = 4;
+    string options = 5;
+    string begin_t = 6;
+    string end_t = 7;
+}
+
+//后置条件： 返回时期内对冲比例值预测/推荐值： series
+message FitDeltaOutput {
+    repeated float value = 1;
+}
+
+message FitGammaInput {
+    string protfolio_id = 1;
+    repeated string asset_id = 2;
+    repeated string asset_amount = 3;
+    float cash = 4;
+    string options1 = 5;
+    string options2 = 6;
+    string begin_t = 7;
+    string end_t = 8;
+}
+
+//后置条件： 返回时期内期权套保持有比例的预测/推荐值： series(float,float)
+message FitGammaOutput {
+    repeated float value = 1;
+}
+
+message CalOptionAmtInput {
+    float total_value = 1;
+    string option = 2;
+    float portion = 3;
+}
+
+message CalOptionAmtOutput {
+    int32 value = 1;
+}
+
+message GenerateRecommendOptionDeltaInput {
+    string protfolio_id = 1;
+    repeated string asset_id = 2;
+    repeated string asset_amount = 3;
+    float cash = 4;
+    string begin_t = 5;
+}
+
+message GenerateRecommendOptionDeltaOutput {
+    repeated string value = 1;
+}
+
+message GenerateRecommendOptionGammaInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+}
+
+message GenerateRecommendOptionGammaOutput {
+    repeated string value = 1;
+}
+
+//=========================================================
+//期货部分函数文档
+//=========================================================
+
+message PortfolioBetaInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+    string end_t = 5;
+}
+
+message PortfolioBetaOutput {
+    float value = 1;
+}
+
+message RetrainBetaModelInput {
+    string protfolio_id = 1;
+    repeated string asset_id = 2;
+    repeated string asset_amount = 3;
+    float cash = 4;
+    string futures = 5;
+}
+
+// 占位符，没有实际意义
+message RetrainBetaModelOutput {
+    string value = 1;
+}
+
+message FitBetaInput {
+    string protfolio_id = 1;
+    repeated string asset_id = 2;
+    repeated string asset_amount = 3;
+    float cash = 4;
+    string futures = 5;
+    string begin_t = 6;
+    string end_t = 7;
+}
+
+message FitBetaOutput {
+    repeated float value =1;
+}
+
+message CalFutureAmtInput {
+    float total_value = 1;
+    string futures = 2;
+    float portion = 3;
+}
+
+message CalFutureAmtOutput {
+    int32 value = 1;
+}
+
+message GenerateRecommendFutureInput {
+    repeated string asset_id = 1;
+    repeated string asset_amount = 2;
+    float cash = 3;
+    string begin_t = 4;
+}
+
+message GenerateRecommendFutureOutput {
+    repeated string value = 1;
+}
 
 
 
