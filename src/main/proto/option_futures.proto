@@ -10,16 +10,56 @@ service OptionFutures{
     //=========================================================
     //期权部分函数文档
     //=========================================================
+    rpc PortfolioDelta(PortfolioDeltaInput) returns (PortfolioDeltaOutput){}
+
+    rpc PortfolioGamma(PortfolioGammaInput) returns (PortfolioGammaOutput){}
+
+    rpc PortfolioVega(PortfolioVegaInput) returns (PortfolioVegaOutput){}
+
+    rpc PortfolioTheta(PortfolioThetaInput) returns (PortfolioThetaOutput){}
+
+
 
     //=========================================================
     //期货部分函数文档
     //=========================================================
 }
 
+//=========================================================
+//期权部分函数文档
+//=========================================================
 
+message PortfolioDeltaInput{
 
+}
 
+message PortfolioDeltaOutput{
 
+}
+
+message PortfolioGammaInput{
+
+}
+
+message PortfolioGammaOutput{
+
+}
+
+message PortfolioVegaInput{
+
+}
+
+message PortfolioVegaOutput{
+
+}
+
+message PortfolioThetaInput{
+
+}
+
+message PortfolioThetaOutput{
+
+}
 
 
 
