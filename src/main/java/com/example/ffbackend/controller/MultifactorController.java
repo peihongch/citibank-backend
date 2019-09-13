@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.example.ffbackend.vo.MultifactorDetailsVo;
 import com.example.ffbackend.vo.NewsVo;
 import com.example.ffbackend.vo.ResponseBean;
 
@@ -36,9 +37,8 @@ public class MultifactorController {
     }
 
     @GetMapping(value = "/{user-id}/multifactor-details")
-    public ResponseBean<Object> getMultifactorDetails(@PathVariable("user-id") Integer userId,
-            @RequestParam("code") String[] codes, @RequestParam("share") Double[] shares) {
+    public ResponseBean<MultifactorDetailsVo> getMultifactorDetails(@PathVariable("user-id") Integer userId) {
         // TODO: vo没写
-        return new ResponseBean<>(true, (Object) null);
+        return new ResponseBean<>(true, (MultifactorDetailsVo) null);
     }
 }

@@ -7,7 +7,8 @@ import lombok.Data;
 
 @Data
 public class MultifactorDetailsVo {
-    public class MultifactorDataset {
+    @Data
+    public class MultifactorDatasetVo {
         String name;
         String code;
         Map<String, Double> factor;
@@ -17,5 +18,5 @@ public class MultifactorDetailsVo {
     }
     Double balance;
     Double threhold;
-    List<MultifactorDataset> dataSource;
+    List<MultifactorDatasetVo> dataSource;
 }
