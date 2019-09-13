@@ -34,13 +34,14 @@ public class RegularAdjustmentController {
     }
 
     @GetMapping(value = "/{user-id}/regular-adjustment/cycle-time")
-    public ResponseBean<Double> getRegularAdjustmentCycleTime(@PathVariable("user-id") Integer userId) {
-        return new ResponseBean<>(true, 10.0);
+    public ResponseBean<Integer> getRegularAdjustmentCycleTime(@PathVariable("user-id") Integer userId) {
+        return new ResponseBean<>(true, service.getCycleTimeByUserId(userId));
     }
 
     @PutMapping(value = "/{user-id}/regular-adjustment/cycle-time")
     public ResponseBean<Object> putRegularAdjustmentCycleTime(@PathVariable("user-id") Integer userId,
-            @RequestBody RegularAdjustmentIndexVo vo) {
+            @RequestBody Integer cycleTime) {
+        service.updateCycleTime(userId, cycleTime);
         return new ResponseBean<>(true, (Object) null);
     }
 }
