@@ -1,5 +1,8 @@
 package com.example.ffbackend.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.ffbackend.vo.ResponseBean;
 import com.example.ffbackend.vo.TransactionVo;
 
@@ -43,12 +46,12 @@ public class InvestmentHistoryController {
         return new ResponseBean<>(true, -1.0);
     }
 
-
     /**
      * 获取累计历史记录
      */
     @GetMapping(value = "/{user-id}/transacion-history")
-    public ResponseBean<TransactionVo> getAccumulatedHistory(@PathVariable("user-id") Integer userId) {
-        return new ResponseBean<>(true, new TransactionVo());
+    public ResponseBean<List<TransactionVo>> getAccumulatedHistory(@PathVariable("user-id") Integer userId) {
+        // TODO: 需要完成repo与entity
+        return new ResponseBean<>(true, new ArrayList<TransactionVo>());
     }
 }
