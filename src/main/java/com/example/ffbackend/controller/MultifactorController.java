@@ -7,7 +7,6 @@ import lombok.var;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import com.example.ffbackend.bl.MultifactorService;
@@ -15,7 +14,6 @@ import com.example.ffbackend.vo.MultifactorDetailsVo;
 import com.example.ffbackend.vo.NewsVo;
 import com.example.ffbackend.vo.ResponseBean;
 import com.example.ffbackend.vo.StockTipVo;
-import com.example.ffbackend.vo.MultifactorDetailsVo.MultifactorDatasetVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
