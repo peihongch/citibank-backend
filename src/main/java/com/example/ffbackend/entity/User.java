@@ -20,18 +20,21 @@ public class User {
 
     String username;
     String password;
-    String email;
+    String nickname;
+    String gender;
+    String birthday;
+    String address;
     String phone;
-    Boolean gender;
-    // Date birthday; TODO:
+    String email;
     String career;
+    Integer postnum;
     String signature;
+
     Double fund;
     Long investmentTime;
     Double expectedReturnRate;
     String riskPreference;
     String investmentPreference;
-    String address;
 
     public static User fromVo(UserVo vo) {
         User res = new User();
@@ -45,7 +48,6 @@ public class User {
         res.setSignature(vo.getSignature());
         res.setFund(vo.getFund());
         res.setInvestmentTime(vo.getInvestmentTime());
-        // TODO:
         return res;
     }
 
@@ -53,9 +55,19 @@ public class User {
         UserVo vo = new UserVo();
         vo.setId(id);
         vo.setUsername(username);
+        vo.setNickname(nickname);
+        vo.setGender(gender);
+        vo.setBirthday(birthday);
+        vo.setAddress(address);
         vo.setEmail(email);
         vo.setPhone(phone);
-        // TODO:
+        vo.setCareer(career);
+        vo.setPostnum(postnum);
+        vo.setSignature(signature);
+        vo.setFund(fund);
+        vo.setInvestmentTime(investmentTime);
+        vo.setExpectedReturnRate(expectedReturnRate);
+        vo.setRiskPreference(riskPreference);
         return vo;
     }
 }

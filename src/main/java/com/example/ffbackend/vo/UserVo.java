@@ -8,19 +8,23 @@ import lombok.Data;
 public class UserVo {
     Integer id;
     String username;
+    String nickname;
+    String gender;
+    String birthday;
+    String address;
     String password;
-    String email;
-    String emailCaptcha;
     String phone;
-    String phoneCaptcha;
-    Boolean gender;
-    Date birthday;
+    String email;
     String career;
+    Integer postnum;
     String signature;
+
+    String emailCaptcha;
+    String phoneCaptcha;
+
     Double fund;
     Long investmentTime;
     Double expectedReturnRate;
     String riskPreference;
     String investmentPreference;
-    String address;
 }
