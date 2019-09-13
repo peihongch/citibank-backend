@@ -12,10 +12,10 @@ import java.util.List;
 import com.example.ffbackend.vo.MultifactorDetailsVo;
 import com.example.ffbackend.vo.NewsVo;
 import com.example.ffbackend.vo.ResponseBean;
+import com.example.ffbackend.vo.StockTipVo;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/user")
@@ -31,9 +31,12 @@ public class MultifactorController {
     }
 
     @GetMapping(value = "/{user-id}/stock-tips")
-    public ResponseBean<Object> getStockTips(@PathVariable("user-id") Integer userId) {
-        // TODO: vo没写
-        return new ResponseBean<>(true, (Object) null);
+    public ResponseBean<List<StockTipVo>> getStockTips(@PathVariable("user-id") Integer userId) {
+        var tips = new ArrayList<StockTipVo>();
+        tips.add(new StockTipVo("203040", "南大食堂"));
+        tips.add(new StockTipVo("233046", "沛东蟹黄煲"));
+        tips.add(new StockTipVo("203040", "黄林动物园"));
+        return new ResponseBean<>(true, tips);
     }
 
     @GetMapping(value = "/{user-id}/multifactor-details")
