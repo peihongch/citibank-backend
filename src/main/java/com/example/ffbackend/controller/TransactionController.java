@@ -39,9 +39,8 @@ public class TransactionController {
     public ResponseBean<List<TransactionVo>> getTransaction(@PathVariable("user-id") Integer userId) {
         var entities = bl.getTransactions(userId);
         var vos = new ArrayList<TransactionVo>(entities.size());
-        for (var entity : entities) {
-            vos.add()
-        }
-        return new ResponseBean<>(true, );
+        for (var entity : entities)
+            vos.add(TransactionVo.getVo(entity));
+        return new ResponseBean<>(true, vos);
     }
 }
