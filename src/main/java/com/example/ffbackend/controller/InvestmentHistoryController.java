@@ -45,13 +45,4 @@ public class InvestmentHistoryController {
     public ResponseBean<Double> getSharpRatio(@PathVariable("user-id") Integer userId) {
         return new ResponseBean<>(true, -1.0);
     }
-
-    /**
-     * 获取累计历史记录
-     */
-    @GetMapping(value = "/{user-id}/transacion-history")
-    public ResponseBean<List<TransactionVo>> getAccumulatedHistory(@PathVariable("user-id") Integer userId) {
-        // TODO: 需要完成repo与entity
-        return new ResponseBean<>(true, new ArrayList<TransactionVo>());
-    }
 }
