@@ -2,6 +2,13 @@ package com.example.ffbackend.bl;
 
 import com.example.ffbackend.vo.StockVo;
 
-public interface StockService {
-    StockVo getStockByCode (String code);
+import org.springframework.stereotype.Service;
+
+@Service
+public class StockService {
+
+    public StockVo getStockByCode(String code) {
+
+        return null;
+    }
 }

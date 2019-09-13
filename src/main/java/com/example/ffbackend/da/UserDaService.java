@@ -1,10 +1,29 @@
 package com.example.ffbackend.da;
 
 import com.example.ffbackend.entity.User;
+import com.example.ffbackend.repo.UserRepo;
 
-public interface UserDaService {
-    User InsertUser (User user);
-    User UpdateUser (User user);
-    void DeleteUser (String username);
-    User GetUserByUsername (String username);
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserDaService {
+    @Autowired
+    UserRepo userRepo;
+
+    public User InsertUser(User user) {
+        return userRepo.save(user);
+    }
+
+    public User UpdateUser(User user) {
+        return userRepo.save(user);
+    }
+
+    public void DeleteUser(String username) {
+        userRepo.deleteByUsername(username);
+    }
+
+    public User GetUserByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
 }
