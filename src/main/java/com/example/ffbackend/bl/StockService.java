@@ -1,5 +1,7 @@
 package com.example.ffbackend.bl;
 
+import java.util.Random;
+
 import com.example.ffbackend.vo.StockVo;
 
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ public class StockService {
     }
 
     public Double getStockPriceByCode (String code) {
-        return 6.05;
+        Random rand = new Random();
+        return (rand.nextInt(60) + 600) / 100.0;
     }
 }

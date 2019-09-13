@@ -17,28 +17,33 @@ import lombok.var;
 
 @Service
 public class PortfolioService {
+
     @Autowired
-    PortfolioDaService portfolioDaService;
+    PortfolioDaService da;
+
+    @Autowired
+    StockService stockService;
 
     public int insertPortfolio(Integer userId, StockInPortfolioVo vo) {
-        var po = portfolioDaService.insertPortfolio(vo.getPo(userId));
+        vo.setMoney(stockService.getStockPriceByCode(vo.getCode()));
+        var po = da.insertPortfolio(vo.getPo(userId));
         if (po == null)
             throw new MyRuntimeException(ResponseEnums.DATABASE_ERROR);
         return po.getId();
     }
 
     public boolean deletePortfolio(int id) {
-        portfolioDaService.deletePortfolio(id);
+        da.deletePortfolio(id);
         return true;
     }
 
     public boolean updatePortfolio(Integer userId, StockInPortfolioVo vo) {
-        var po = portfolioDaService.insertPortfolio(vo.getPo(userId));
+        var po = da.insertPortfolio(vo.getPo(userId));
         return po != null;
     }
 
     public List<StockInPortfolioVo> getPortfolio(int userId) {
-        var pos = portfolioDaService.getPortfolioByUserId(userId);
+        var pos = da.getPortfolioByUserId(userId);
         if (pos == null)
             throw new MyRuntimeException();
         var vos = new ArrayList<StockInPortfolioVo>(pos.size());
@@ -47,11 +52,11 @@ public class PortfolioService {
         return vos;
     }
 
-    public Map<String, Integer> getPortfolioCurrentPrice(int userId) {
-        var pos = portfolioDaService.getPortfolioByUserId(userId);
-        HashMap<String, Integer> res = new HashMap<>();
+    public Map<String, Double> getPortfolioCurrentPrice(int userId) {
+        var pos = da.getPortfolioByUserId(userId);
+        HashMap<String, Double> res = new HashMap<>();
         for (var po : pos)
-            res.put(po.getCode(), 233300);
+            res.put(po.getCode(), stockService.getStockPriceByCode(po.getCode()));
         return res;
     }
 }

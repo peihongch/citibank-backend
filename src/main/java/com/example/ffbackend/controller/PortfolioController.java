@@ -37,7 +37,7 @@ public class PortfolioController {
     }
 
     @GetMapping(value="/{user-id}/portfolio-price")
-    public ResponseBean<Map<String, Integer>> getPortfolioCurrentPrice(@PathVariable("user-id") Integer userId) {
+    public ResponseBean<Map<String, Double>> getPortfolioCurrentPrice(@PathVariable("user-id") Integer userId) {
         return new ResponseBean<>(true, bl.getPortfolioCurrentPrice(userId));
     }
     
