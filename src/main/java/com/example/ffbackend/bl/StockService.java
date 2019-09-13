@@ -21,3 +21,4 @@ public class StockService {
         return (rand.nextInt(60) + 600) / 100.0;
     }
 }
+

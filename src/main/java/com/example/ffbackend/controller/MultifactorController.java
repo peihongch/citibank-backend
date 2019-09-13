@@ -19,13 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 @RequestMapping("/user")
 public class MultifactorController {
-    @GetMapping(value = "/{user-id}/multifactor-details")
-    public ResponseBean<Object> getMultifactorDetails(@PathVariable("user-id") Integer userId,
-            @RequestParam("code") String[] codes, @RequestParam("share") Double[] shares) {
-        // TODO: vo没写
-        return new ResponseBean<>(true, (Object) null);
-    }
-
     @GetMapping(value = "/{user-id}/news")
     public ResponseBean<List<NewsVo>> getNews(@PathVariable("user-id") Integer userId) {
         var newsList = new ArrayList<NewsVo>();
@@ -42,8 +35,9 @@ public class MultifactorController {
         return new ResponseBean<>(true, (Object) null);
     }
 
-    @GetMapping(value = "/{user-id}/multifactor-recommend")
-    public ResponseBean<Object> getMultifactorRecommend(@PathVariable("user-id") Integer userId) {
+    @GetMapping(value = "/{user-id}/multifactor-details")
+    public ResponseBean<Object> getMultifactorDetails(@PathVariable("user-id") Integer userId,
+            @RequestParam("code") String[] codes, @RequestParam("share") Double[] shares) {
         // TODO: vo没写
         return new ResponseBean<>(true, (Object) null);
     }
