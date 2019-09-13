@@ -36,7 +36,7 @@ public class MultifactorController {
         // TODO: 对接rpc
         tips.add(new StockTipVo("203040", "南大食堂"));
         tips.add(new StockTipVo("233046", "沛东蟹黄煲"));
-        tips.add(new StockTipVo("203040", "黄林动物园"));
+        tips.add(new StockTipVo("420300", "黄林动物园"));
         return new ResponseBean<>(true, tips);
     }
 
