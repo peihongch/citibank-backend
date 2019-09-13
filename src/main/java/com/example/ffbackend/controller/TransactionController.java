@@ -35,7 +35,7 @@ public class TransactionController {
     /**
      * 获取累计历史记录
      */
-    @GetMapping(value = "/{user-id}/transacion")
+    @GetMapping(value = "/{user-id}/transaction")
     public ResponseBean<List<TransactionVo>> getTransaction(@PathVariable("user-id") Integer userId) {
         var entities = bl.getTransactions(userId);
         var vos = new ArrayList<TransactionVo>(entities.size());
