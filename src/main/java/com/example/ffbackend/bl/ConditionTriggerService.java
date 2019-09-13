@@ -29,6 +29,6 @@ public class ConditionTriggerService {
         var vo = new ArrayList<ConditionTriggerIndexVo>(pos.size());
         for (var po : pos)
             vo.add(po.createVo());
-        return new ArrayList<>();
+        return vo;
     }
 }
