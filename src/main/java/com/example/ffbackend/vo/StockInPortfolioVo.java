@@ -8,7 +8,7 @@ import lombok.Data;
 public class StockInPortfolioVo {
     Integer id;
     String code;
-    Double num;
+    Integer num;
     Double money;
 
     public StockInPortfolio getPo (Integer userId) {

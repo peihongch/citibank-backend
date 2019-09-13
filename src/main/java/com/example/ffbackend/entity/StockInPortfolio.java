@@ -20,7 +20,7 @@ public class StockInPortfolio {
 
     Integer userId;
     String code;
-    Double num;
+    Integer num;
     Double money;
 
     public StockInPortfolioVo getVo () {
