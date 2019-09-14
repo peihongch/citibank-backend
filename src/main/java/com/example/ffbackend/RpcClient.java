@@ -64,4 +64,8 @@ public class RpcClient {
         return TailRiskGrpc.newBlockingStub(managedChannel());
     }
 
+    @Bean public StocksGrpc.StocksBlockingStub stocksBlockingStub(){
+        return StocksGrpc.newBlockingStub(managedChannel());
+    }
+
 }

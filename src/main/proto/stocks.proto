@@ -1,0 +1,18 @@
+// python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. stocks.proto
+
+syntax = "proto3";
+
+option java_package = "com.example.ffbackend.rpc.proto";
+option java_outer_classname = "StocksProto";
+
+service Stocks{
+    rpc GetAllStocks(GetAllStocksInput)returns (GetAllStocksOutput){}
+}
+
+message GetAllStocksInput{
+
+}
+
+message GetAllStocksOutput{
+    repeated string value = 1;
+}
