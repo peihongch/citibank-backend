@@ -48,10 +48,11 @@ public class OptionService {
                 assetId.add(p.getCode());
                 assetAmount.add(p.getNum().toString());
             }
-            var option = rpcOptionFuturesService.generateRecommendOptionDelta("", assetId, assetAmount, 0f,
-                    new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            // todo: chph
+//            var option = rpcOptionFuturesService.generateRecommendOptionDelta("", assetId, assetAmount, 0f,
+//                    new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
             // TODO: option
-            System.out.println(option);
+//            System.out.println(option);
         }
     }
 }
