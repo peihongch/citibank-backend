@@ -1,5 +1,6 @@
 package com.example.ffbackend.bl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -42,12 +43,13 @@ public class OptionService {
             var portfolio = portfolioService.getPortfolio(user.getId());
             // TODO: 用户剩余资金
             var assetId = new ArrayList<String>(portfolio.size());
-            var assetAmount = new ArrayList<Integer>(portfolio.size());
+            var assetAmount = new ArrayList<String>(portfolio.size());
             for (var p : portfolio) {
                 assetId.add(p.getCode());
-                assetAmount.add(p.getNum());
+                assetAmount.add(p.getNum().toString());
             }
-            // rpcOptionFuturesService.generateRecommendOptionDelta("", assetId, assetAmount, 0f, new Date());
+            rpcOptionFuturesService.generateRecommendOptionDelta("", assetId, assetAmount, 0f,
+                    new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
         }
     }
 }
