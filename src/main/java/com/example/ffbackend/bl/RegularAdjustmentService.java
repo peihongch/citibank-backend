@@ -43,4 +43,6 @@ public class RegularAdjustmentService {
     public void updateCycleTime(Integer userId, Integer cycleTime) {
         da.updateCycleTime(userId, new RegularAdjustmentCycleTime(null, userId, cycleTime));
     }
+
+    // TODO: 定期调整，所有用户扔内存
 }
