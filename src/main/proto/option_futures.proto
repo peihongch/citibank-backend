@@ -235,7 +235,6 @@ message GenerateRecommendOptionDeltaInput {
     repeated string asset_id = 2;
     repeated string asset_amount = 3;
     float cash = 4;
-    string begin_t = 5;
 }
 
 message GenerateRecommendOptionDeltaOutput {

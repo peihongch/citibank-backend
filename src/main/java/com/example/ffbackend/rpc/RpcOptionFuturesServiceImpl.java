@@ -130,13 +130,12 @@ public class RpcOptionFuturesServiceImpl implements RpcOptionFuturesService {
     }
 
     @Override
-    public List<String> generateRecommendOptionDelta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String beginT) {
+    public List<String> generateRecommendOptionDelta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash) {
         var builder = GenerateRecommendOptionDeltaInput.newBuilder();
         var input = builder.setProtfolioId(protfolioId)
                 .addAllAssetId(assetId)
                 .addAllAssetAmount(assetAmount)
                 .setCash(cash)
-                .setBeginT(beginT)
                 .build();
         return optionFuturesBlockingStub.generateRecommendOptionDelta(input).getValueList();
     }
