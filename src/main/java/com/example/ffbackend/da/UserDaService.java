@@ -13,19 +13,23 @@ public class UserDaService {
     @Autowired
     UserRepo userRepo;
 
-    public User InsertUser(User user) {
+    public User insertUser(User user) {
         return userRepo.save(user);
     }
 
-    public User UpdateUser(User user) {
+    public User updateUser(User user) {
         return userRepo.save(user);
     }
 
-    public void DeleteUser(String username) {
+    public void deleteUser(String username) {
         userRepo.deleteByUsername(username);
     }
 
-    public User GetUserByUsername(String username) {
+    public User getUserById (Integer id) {
+        return userRepo.findById(id).orElse(null);
+    }
+
+    public User getUserByUsername(String username) {
         return userRepo.findByUsername(username);
     }
 

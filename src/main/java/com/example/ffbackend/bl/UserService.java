@@ -29,17 +29,17 @@ public class UserService {
     Random rand = new Random();
 
     public boolean insertUser(UserVo vo) {
-        var oriUser = userDaService.GetUserByUsername(vo.getUsername());
+        var oriUser = userDaService.getUserByUsername(vo.getUsername());
         if (oriUser != null)
             throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
         User user = vo.createPo();
         user.setId(null);
-        userDaService.InsertUser(user);
+        userDaService.insertUser(user);
         return true;
     }
 
     public boolean deleteUser(String username) {
-        userDaService.DeleteUser(username);
+        userDaService.deleteUser(username);
         return true;
     }
 
@@ -47,8 +47,15 @@ public class UserService {
         User user = vo.createPo();
         if (user.getId() == null)
             return false;
-        userDaService.UpdateUser(user);
+        userDaService.updateUser(user);
         return true;
+    }
+
+    public void updateUserFund(Integer userId, Double chargeMoney) {
+        var po = userDaService.getUserById(userId);
+        if (po == null) throw new MyRuntimeException(ResponseEnums.METHOD_NOT_ALLOWED);
+        po.setFund(po.getFund() + chargeMoney);
+        userDaService.updateUser(po);
     }
 
     public List<UserVo> getAllUser() {
@@ -60,7 +67,7 @@ public class UserService {
     }
 
     public UserVo getUserByUsername(String username) {
-        var po = userDaService.GetUserByUsername(username);
+        var po = userDaService.getUserByUsername(username);
         if (po != null)
             return po.createVo();
         return null;
