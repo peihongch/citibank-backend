@@ -10,11 +10,11 @@ import lombok.Data;
 public class UserVo {
     Integer id;
     String username;
+    String password;
     String nickname;
     String gender;
     Date birthday;
     String address;
-    String password;
     String phone;
     String email;
     String career;
@@ -34,6 +34,7 @@ public class UserVo {
         User po = new User();
         po.setId(id);
         po.setUsername(username);
+        po.setPassword(password);
         po.setNickname(nickname);
         po.setGender(gender);
         po.setBirthday(birthday);

@@ -42,6 +42,7 @@ public class User {
         UserVo vo = new UserVo();
         vo.setId(id);
         vo.setUsername(username);
+        vo.setPassword(password);
         vo.setNickname(nickname);
         vo.setGender(gender);
         vo.setBirthday(birthday);
