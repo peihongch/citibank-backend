@@ -156,13 +156,9 @@ public class RpcOptionFuturesServiceImpl implements RpcOptionFuturesService {
     //=========================================================
 
     @Override
-    public float portfolioBeta(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT) {
+    public float portfolioBeta(List<String> assetId, List<Integer> weights) {
         var builder = PortfolioBetaInput.newBuilder();
-        var input = builder.addAllAssetId(assetId)
-                .addAllAssetAmount(assetAmount)
-                .setCash(cash)
-                .setBeginT(beginT)
-                .setEndT(endT)
+        var input = builder.addAllAssetId(assetId).addAllWeight(weights)
                 .build();
         return optionFuturesBlockingStub.portfolioBeta(input).getValue();
     }
@@ -179,14 +175,13 @@ public class RpcOptionFuturesServiceImpl implements RpcOptionFuturesService {
     }
 
     @Override
-    public List<Float> fitBeta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures, String beginT, String endT) {
+    public List<Float> fitBeta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures) {
         var builder = FitBetaInput.newBuilder();
-        var input = builder.addAllAssetId(assetId)
+        var input = builder.setProtfolioId(protfolioId)
+                .addAllAssetId(assetId)
                 .addAllAssetAmount(assetAmount)
                 .setCash(cash)
                 .setFutures(futures)
-                .setBeginT(beginT)
-                .setEndT(endT)
                 .build();
         return optionFuturesBlockingStub.fitBeta(input).getValueList();
     }

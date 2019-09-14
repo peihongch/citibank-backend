@@ -224,6 +224,7 @@ message CalOptionAmtInput {
     float total_value = 1;
     string option = 2;
     float portion = 3;
+    string time = 4;
 }
 
 message CalOptionAmtOutput {
@@ -258,10 +259,7 @@ message GenerateRecommendOptionGammaOutput {
 
 message PortfolioBetaInput {
     repeated string asset_id = 1;
-    repeated string asset_amount = 2;
-    float cash = 3;
-    string begin_t = 4;
-    string end_t = 5;
+    repeated int32 weight = 2;
 }
 
 message PortfolioBetaOutput {
@@ -287,8 +285,6 @@ message FitBetaInput {
     repeated string asset_amount = 3;
     float cash = 4;
     string futures = 5;
-    string begin_t = 6;
-    string end_t = 7;
 }
 
 message FitBetaOutput {
@@ -299,6 +295,7 @@ message CalFutureAmtInput {
     float total_value = 1;
     string futures = 2;
     float portion = 3;
+    string begin_t = 4;
 }
 
 message CalFutureAmtOutput {

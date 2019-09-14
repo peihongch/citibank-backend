@@ -39,11 +39,11 @@ public interface RpcOptionFuturesService {
     //期货部分函数
     //=========================================================
 
-    float portfolioBeta(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
+    float portfolioBeta(List<String> assetId, List<Integer> weights);
 
     void retrainBetaModel(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures);
 
-    List<Float> fitBeta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures, String beginT, String endT);
+    List<Float> fitBeta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures);
 
     int calFuturesAmt(float totalValue, String futures, float portion);
 
