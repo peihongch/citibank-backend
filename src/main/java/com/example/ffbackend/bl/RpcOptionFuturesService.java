@@ -33,7 +33,7 @@ public interface RpcOptionFuturesService {
 
     List<String> generateRecommendOptionDelta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash);
 
-    List<String> generateRecommendOptionGamma(List<String> assetId, List<String> assetAmount, float cash, String beginT);
+    List<String> generateRecommendOptionGamma(String protfolioId,List<String> assetId, List<String> assetAmount, float cash);
 
     //=========================================================
     //期货部分函数

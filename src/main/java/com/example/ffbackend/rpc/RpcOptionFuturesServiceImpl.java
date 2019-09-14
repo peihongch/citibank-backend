@@ -141,12 +141,12 @@ public class RpcOptionFuturesServiceImpl implements RpcOptionFuturesService {
     }
 
     @Override
-    public List<String> generateRecommendOptionGamma(List<String> assetId, List<String> assetAmount, float cash, String beginT) {
+    public List<String> generateRecommendOptionGamma(String protfolioId,List<String> assetId, List<String> assetAmount, float cash) {
         var builder = GenerateRecommendOptionGammaInput.newBuilder();
-        var input = builder.addAllAssetId(assetId)
+        var input = builder.setProtfolioId(protfolioId)
+                .addAllAssetId(assetId)
                 .addAllAssetAmount(assetAmount)
                 .setCash(cash)
-                .setBeginT(beginT)
                 .build();
         return optionFuturesBlockingStub.generateRecommendOptionGamma(input).getValueList();
     }
