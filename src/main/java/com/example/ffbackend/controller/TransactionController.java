@@ -3,9 +3,6 @@ package com.example.ffbackend.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.var;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.ffbackend.bl.TransactionService;
@@ -36,10 +33,6 @@ public class TransactionController {
      */
     @GetMapping(value = "/{user-id}/transaction")
     public ResponseBean<List<TransactionVo>> getTransaction(@PathVariable("user-id") Integer userId) {
-        var entities = bl.getTransactions(userId);
-        var vos = new ArrayList<TransactionVo>(entities.size());
-        for (var entity : entities)
-            vos.add(TransactionVo.createVo(entity));
-        return new ResponseBean<>(true, vos);
+        return new ResponseBean<>(true, bl.getTransactions(userId));
     }
 }
