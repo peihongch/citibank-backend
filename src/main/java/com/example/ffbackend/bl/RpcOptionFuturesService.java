@@ -7,19 +7,19 @@ public interface RpcOptionFuturesService {
     //期权部分函数
     //=========================================================
 
-    String portfolioDelta(String assetId, String assetAmount, float cash, String beginT, String endT);
+    List<String> portfolioDelta(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
 
-    String portfolioGamma(String assetId, String assetAmount, float cash, String beginT, String endT);
+    List<String> portfolioGamma(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
 
-    String portfolioVega(String assetId, String assetAmount, float cash, String beginT, String endT);
+    List<String> portfolioVega(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
 
-    String portfolioTheta(String assetId, String assetAmount, float cash, String beginT, String endT);
+    List<String> portfolioTheta(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
 
-    String portfolioRho(String assetId, String assetAmount, float cash, String beginT, String endT);
+    List<String> portfolioRho(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
 
-    String portfolioVolatility(String assetId, String assetAmount, float cash, String beginT, String endT);
+    List<String> portfolioVolatility(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
 
-    String portfolioEarningRate(String assetId, String assetAmount, float cash, String beginT, String endT, int time);
+    List<String> portfolioEarningRate(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT, int time);
 
     void retrainDeltaModel(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String options);
 
@@ -33,7 +33,7 @@ public interface RpcOptionFuturesService {
 
     List<String> generateRecommendOptionDelta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String beginT);
 
-    List<String> generateRecommendOption(List<String> assetId, List<String> assetAmount, float cash, String beginT);
+    List<String> generateRecommendOptionGamma(List<String> assetId, List<String> assetAmount, float cash, String beginT);
 
     //=========================================================
     //期货部分函数
@@ -41,7 +41,7 @@ public interface RpcOptionFuturesService {
 
     float portfolioBeta(List<String> assetId, List<String> assetAmount, float cash, String beginT, String endT);
 
-    void petrainBetaModel(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures);
+    void retrainBetaModel(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures);
 
     List<Float> fitBeta(String protfolioId, List<String> assetId, List<String> assetAmount, float cash, String futures, String beginT, String endT);
 
