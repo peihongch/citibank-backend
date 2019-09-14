@@ -25,19 +25,19 @@ public class UserController {
     UserService userService;
     @PostMapping
     public ResponseBean<Object> register(@RequestBody UserVo vo) {
-        userService.InsertUser(vo);
+        userService.insertUser(vo);
         return new ResponseBean<>(true, (Object)null);
     }
 
     @PutMapping(value = "/{username}")
     public ResponseBean<Object> updateUser(@PathVariable("username") String username, @RequestBody UserVo vo) {
-        userService.UpdateUser(vo);
+        userService.updateUser(vo);
         return new ResponseBean<>(true, (Object)null);
     }
 
     @GetMapping(value = "/{username}")
     public ResponseBean<UserVo> getUser(@PathVariable("username") String username) {
-        UserVo userVo = userService.GetUserByUsername(username);
+        UserVo userVo = userService.getUserByUsername(username);
         if (userVo == null)
             throw new MyRuntimeException(ResponseEnums.NO_USER_EXIST);
         return new ResponseBean<>(true, userVo);
@@ -45,19 +45,19 @@ public class UserController {
 
     @DeleteMapping(value = "/{username}")
     public ResponseBean<Object> deleteUser(@PathVariable("username") String username) {
-        userService.DeleteUser(username);
+        userService.deleteUser(username);
         return new ResponseBean<>(true, (Object)null);
     }
 
     @PostMapping(value = "/email-captcha")
     public ResponseBean<Object> createEmailCaptcha(@RequestParam(value = "email") String email) {
-        userService.InsertEmailCaptcha(email);
+        userService.insertEmailCaptcha(email);
         return new ResponseBean<>(true, (Object)null);
     }
 
     @PostMapping(value = "/phone-captcha")
     public ResponseBean<Object> createPhoneCaptcha(@RequestParam(value = "phone") String phone) {
-        userService.InsertPhoneCaptcha(phone);
+        userService.insertPhoneCaptcha(phone);
         return new ResponseBean<>(true, (Object)null);
     }
 }

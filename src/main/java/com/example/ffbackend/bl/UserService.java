@@ -26,7 +26,7 @@ public class UserService {
     Map<String, Pair<Date, String>> phoneCaptchaDict = new HashMap<>();
     Random rand = new Random();
 
-    public boolean InsertUser(UserVo vo) {
+    public boolean insertUser(UserVo vo) {
         var oriUser = userDaService.GetUserByUsername(vo.getUsername());
         if (oriUser != null)
             throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
@@ -36,12 +36,12 @@ public class UserService {
         return true;
     }
 
-    public boolean DeleteUser(String username) {
+    public boolean deleteUser(String username) {
         userDaService.DeleteUser(username);
         return true;
     }
 
-    public boolean UpdateUser(UserVo vo) {
+    public boolean updateUser(UserVo vo) {
         User user = vo.createPo();
         if (user.getId() == null)
             return false;
@@ -49,14 +49,14 @@ public class UserService {
         return true;
     }
 
-    public UserVo GetUserByUsername(String username) {
+    public UserVo getUserByUsername(String username) {
         var po = userDaService.GetUserByUsername(username);
         if (po != null)
             return po.createVo();
         return null;
     }
 
-    public boolean InsertEmailCaptcha(String email) {
+    public boolean insertEmailCaptcha(String email) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 6; i++)
             sb.append(rand.nextInt(10));
@@ -65,7 +65,7 @@ public class UserService {
         return true;
     }
 
-    public boolean InsertPhoneCaptcha(String phone) {
+    public boolean insertPhoneCaptcha(String phone) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 6; i++)
             sb.append(rand.nextInt(10));
