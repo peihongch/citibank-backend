@@ -10,7 +10,11 @@ public class ChargeService {
     @Autowired
     UserService userService;
 
+    @Autowired
+    RpcCitibankApiService citibankApiService;
+
     public void createCharge (Integer userId, ChargeVo vo) {
+        // TODO: citibankApiService
         userService.updateUserFund(userId, vo.getMoney());
     }
 }
