@@ -32,6 +32,7 @@ public class UserService {
         var oriUser = userDaService.getUserByUsername(vo.getUsername());
         if (oriUser != null)
             throw new MyRuntimeException(ResponseEnums.REPEAT_REGISTER);
+        vo.setFund(0.0);
         User user = vo.createPo();
         user.setId(null);
         userDaService.insertUser(user);
