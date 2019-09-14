@@ -1,5 +1,7 @@
 package com.example.ffbackend.da;
 
+import java.util.List;
+
 import com.example.ffbackend.entity.User;
 import com.example.ffbackend.repo.UserRepo;
 
@@ -25,5 +27,9 @@ public class UserDaService {
 
     public User GetUserByUsername(String username) {
         return userRepo.findByUsername(username);
+    }
+
+    public List<User> getAllUser() {
+        return userRepo.findAll();
     }
 }

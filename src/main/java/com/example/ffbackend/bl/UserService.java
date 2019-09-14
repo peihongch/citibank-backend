@@ -1,7 +1,9 @@
 package com.example.ffbackend.bl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -47,6 +49,14 @@ public class UserService {
             return false;
         userDaService.UpdateUser(user);
         return true;
+    }
+
+    public List<UserVo> getAllUser() {
+        var pos = userDaService.getAllUser();
+        var res = new ArrayList<UserVo>(pos.size());
+        for (var po : pos)
+            res.add(po.createVo());
+        return res;
     }
 
     public UserVo getUserByUsername(String username) {
