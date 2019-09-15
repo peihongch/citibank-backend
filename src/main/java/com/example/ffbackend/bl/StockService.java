@@ -2,16 +2,23 @@ package com.example.ffbackend.bl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.example.ffbackend.vo.StockVo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.var;
 
 @Service
 public class StockService {
+    @Autowired
+    RpcStocksService rpcStocksService;
+
+    Map<String, StockVo> stockMap;
+
     public StockVo getStockByCode(String code) {
         return null;
     }
