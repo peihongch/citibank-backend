@@ -20,6 +20,10 @@ public class RegularAdjustmentDaService {
     @Autowired
     RegularAdjustmentCycleTimeRepo cycleTimeRepo;
 
+    public List<RegularAdjustmentIndex> getAllIndexs() {
+        return indexRepo.findAll();
+    }
+
     public List<RegularAdjustmentIndex> getIndexsByUserId(Integer userId) {
         return indexRepo.findByUserId(userId);
     }
@@ -27,6 +31,10 @@ public class RegularAdjustmentDaService {
     public void updateIndexs(Integer userId, List<RegularAdjustmentIndex> pos) {
         indexRepo.deleteByUserId(userId);
         indexRepo.saveAll(pos);
+    }
+
+    public List<RegularAdjustmentCycleTime> getAllCycleTime() {
+        return cycleTimeRepo.findAll();
     }
 
     public RegularAdjustmentCycleTime getCycleTimeByUserId(Integer userId) {

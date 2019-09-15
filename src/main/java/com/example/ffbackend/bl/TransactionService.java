@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.example.ffbackend.da.TransactionDaService;
 import com.example.ffbackend.entity.Transaction;
-import com.example.ffbackend.vo.TradeVo;
 import com.example.ffbackend.vo.TransactionVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +18,8 @@ public class TransactionService {
     @Autowired
     TransactionDaService da;
 
-    @Autowired
-    StockService stockService;
-
-    public boolean createTransaction(Integer userId, TradeVo vo) {
-        var tr = new Transaction(null, new Date(), userId, vo.getCode(), stockService.getStockNameByCode(vo.getCode()),
-                vo.getBuy() ? "买入" : "卖出", vo.getNum(), stockService.getStockPriceByCode(vo.getCode()), 4.5);
+    public boolean createTransaction(Integer userId, String code, String stockName, Boolean buy, Integer num, Double price, Double commission) {
+        var tr = new Transaction(null, new Date(), userId, code, stockName, buy ? "买入" : "卖出", num, price, commission);
         da.insertTransaction(tr);
         return true;
     }
@@ -37,4 +32,3 @@ public class TransactionService {
         return vos;
     }
 }
-
