@@ -14,7 +14,6 @@ public class ChargeService {
     RpcCitibankApiService citibankApiService;
 
     public void createCharge (Integer userId, ChargeVo vo) {
-        // TODO: citibankApiService
         userService.updateUserFund(userId, vo.getMoney());
     }
 }
