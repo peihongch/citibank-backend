@@ -14,7 +14,6 @@ public class PortfolioDaService {
     PortfolioRepo repo;
 
     public StockInPortfolio insertPortfolio(StockInPortfolio po) {
-        po.setId(-1);
         return repo.save(po);
     }
 

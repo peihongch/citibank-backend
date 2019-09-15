@@ -16,6 +16,8 @@ import lombok.Data;
 public class StockInPortfolio {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+    Integer id;
+
     String code;
 
     Integer userId;
