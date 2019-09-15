@@ -7,7 +7,36 @@ option java_package = "com.example.ffbackend.rpc.proto";
 option java_outer_classname = "CitibankApiProto";
 
 service CitibankApi{
+    rpc StockPoundage(StockPoundageInput)returns(StockPoundageOutput){}
 
+    rpc FuturePoundage(FuturePoundageInput) returns(FuturePoundageOutput){}
+
+    rpc OptionsPoundage(OptionsPoundageInput)returns (OptionsPoundageOutput){}
+}
+
+
+message StockPoundageInput{
+    float deal_amount = 1;
+}
+
+message StockPoundageOutput{
+    float value = 1;
+}
+
+message FuturePoundageInput{
+    float deal_amount = 1;
+}
+
+message FuturePoundageOutput{
+    float value = 1;
+}
+
+message OptionsPoundageInput{
+    int32 num_of_piece = 1;
+}
+
+message OptionsPoundageOutput{
+    float value = 1;
 }
 
 
