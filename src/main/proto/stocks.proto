@@ -7,6 +7,9 @@ option java_outer_classname = "StocksProto";
 
 service Stocks{
     rpc GetAllStocks(GetAllStocksInput)returns (GetAllStocksOutput){}
+
+    rpc GetStockHistory(GetStockHistoryInput)returns(GetStockHistoryOutput){}
+
 }
 
 message GetAllStocksInput{
@@ -15,4 +18,16 @@ message GetAllStocksInput{
 
 message GetAllStocksOutput{
     repeated string value = 1;
+}
+
+message GetStockHistoryInput{
+    string stock_code = 1;
+}
+
+message GetStockHistoryOutput{
+    repeated GetStockHistoryRow value = 1;
+}
+
+message GetStockHistoryRow{
+    repeated float row = 1;
 }
