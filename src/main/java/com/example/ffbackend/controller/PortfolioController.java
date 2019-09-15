@@ -22,7 +22,7 @@ public class PortfolioController {
     @Autowired
     PortfolioService bl;
 
-    @GetMapping(value = "/{user-id}/stock-in-portfolio")
+    @GetMapping(value = "/{user-id}/portfolio")
     public ResponseBean<List<StockInPortfolioVo>> getPortfolio(@PathVariable("user-id") Integer userId) {
         return new ResponseBean<>(true, bl.getPortfolio(userId));
     }
@@ -34,7 +34,7 @@ public class PortfolioController {
 
     @PutMapping(value = "/{user-id}/stock-in-portfolio/")
     public ResponseBean<Object> updatePortfolio(@PathVariable("user-id") Integer userId,
-            @RequestBody StockInPortfolioVo vo) {
+            @RequestBody List<StockInPortfolioVo> vo) {
         bl.updatePortfolio(userId, vo);
         return new ResponseBean<>(true, null);
     }

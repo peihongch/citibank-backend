@@ -6,14 +6,12 @@ import lombok.Data;
 
 @Data
 public class StockInPortfolioVo {
-    Integer id;
     String code;
     Integer num;
     Double money;
 
     public StockInPortfolio createPo (Integer userId) {
         StockInPortfolio res = new StockInPortfolio();
-        res.setId(id);
         res.setUserId(userId);
         res.setCode(code);
         res.setNum(num);

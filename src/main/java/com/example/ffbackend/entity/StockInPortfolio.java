@@ -15,17 +15,15 @@ import lombok.Data;
 @Table
 public class StockInPortfolio {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    String code;
 
     Integer userId;
-    String code;
     Integer num;
     Double money;
 
     public StockInPortfolioVo getVo () {
         StockInPortfolioVo res = new StockInPortfolioVo();
-        res.setId(id);
         res.setCode(code);
         res.setNum(num);
         res.setMoney(money);

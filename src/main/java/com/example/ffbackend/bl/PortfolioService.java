@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.ffbackend.da.PortfolioDaService;
+import com.example.ffbackend.entity.StockInPortfolio;
 import com.example.ffbackend.exception.MyRuntimeException;
-import com.example.ffbackend.vo.ResponseEnums;
 import com.example.ffbackend.vo.StockInPortfolioVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,22 +24,43 @@ public class PortfolioService {
     @Autowired
     StockService stockService;
 
-    public int insertPortfolio(Integer userId, StockInPortfolioVo vo) {
-        vo.setMoney(stockService.getStockPriceByCode(vo.getCode()));
-        var po = da.insertPortfolio(vo.createPo(userId));
-        if (po == null)
-            throw new MyRuntimeException(ResponseEnums.DATABASE_ERROR);
-        return po.getId();
-    }
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    TransactionService transactionService;
 
     public boolean deletePortfolio(int id) {
         da.deletePortfolio(id);
         return true;
     }
 
-    public boolean updatePortfolio(Integer userId, StockInPortfolioVo vo) {
-        var po = da.insertPortfolio(vo.createPo(userId));
-        return po != null;
+    public void updatePortfolio(Integer userId, List<StockInPortfolioVo> vo) {
+        var oriPortfolio = da.getPortfolioByUserId(userId);
+        Map<String, StockInPortfolio> oriPflMap = new HashMap<>();
+        for (var stk : oriPortfolio)
+            oriPflMap.put(stk.getCode(), stk);
+        for (var stk : vo) {
+            var oriStk = oriPflMap.get(stk.getCode());
+            if (oriStk == null) {
+                // 购入新股票
+            } else {
+                if (oriStk.getNum() == stk.getNum())
+                    continue;
+                if (oriStk.getNum() < stk.getNum()) {
+                    var buyNum = stk.getNum() - oriStk.getNum();
+                    transactionService.createTransaction(userId, stk.getCode(),
+                            stockService.getStockNameByCode(stk.getCode()), true, buyNum,
+                            stockService.getStockPriceByCode(stk.getCode()), 2.03);
+                } else {
+                    var sellNum = oriStk.getNum() - stk.getNum();
+                    transactionService.createTransaction(userId, stk.getCode(),
+                            stockService.getStockNameByCode(stk.getCode()), false, sellNum,
+                            stockService.getStockPriceByCode(stk.getCode()), 2.03);
+                }
+                da.updatePortfolio(stk.createPo(userId));
+            }
+        }
     }
 
     public List<StockInPortfolioVo> getPortfolio(int userId) {

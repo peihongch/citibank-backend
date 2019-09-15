@@ -52,10 +52,10 @@ public class UserService {
         return true;
     }
 
-    public void updateUserFund(Integer userId, Double chargeMoney) {
+    public void updateUserFund(Integer userId, Double dMoney) {
         var po = userDaService.getUserById(userId);
         if (po == null) throw new MyRuntimeException(ResponseEnums.METHOD_NOT_ALLOWED);
-        po.setFund(po.getFund() + chargeMoney);
+        po.setFund(po.getFund() + dMoney);
         userDaService.updateUser(po);
     }
 
