@@ -11,5 +11,5 @@ public interface RpcStocksService {
      * @param stockCode
      * @return
      */
-    List<List<Float>> getStockHistory(String stockCode);
+    List<List<String>> getStockHistory(String stockCode);
 }

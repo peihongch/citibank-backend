@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.constraints.PastOrPresent;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -28,6 +30,8 @@ public class UserController {
         userService.insertUser(vo);
         return new ResponseBean<>(true, (Object)null);
     }
+
+
 
     @PutMapping(value = "/{username}")
     public ResponseBean<Object> updateUser(@PathVariable("username") String username, @RequestBody UserVo vo) {

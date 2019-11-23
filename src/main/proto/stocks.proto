@@ -29,5 +29,5 @@ message GetStockHistoryOutput{
 }
 
 message GetStockHistoryRow{
-    repeated float row = 1;
+    repeated string row = 1;
 }

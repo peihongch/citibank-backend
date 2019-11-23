@@ -23,10 +23,10 @@ public class RpcStocksServiceImpl implements RpcStocksService {
     }
 
     @Override
-    public List<List<Float>> getStockHistory(String stockCode) {
+    public List<List<String>> getStockHistory(String stockCode) {
         StocksProto.GetStockHistoryInput input = StocksProto.GetStockHistoryInput.newBuilder().setStockCode(stockCode).build();
         var output = stocksBlockingStub.getStockHistory(input);
-        List<List<Float>> ret = new LinkedList<>();
+        List<List<String>> ret = new LinkedList<>();
         for (StocksProto.GetStockHistoryRow row: output.getValueList()){
             ret.add(row.getRowList());
         }
