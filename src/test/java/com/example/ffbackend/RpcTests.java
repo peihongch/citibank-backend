@@ -1,5 +1,7 @@
 package com.example.ffbackend;
 
+import java.util.List;
+
 import com.example.ffbackend.bl.RpcAdjustmentAndTriggeringOfPortfolioService;
 import com.example.ffbackend.bl.RpcCitibankApiService;
 import com.example.ffbackend.bl.RpcConditionalTriggerService;
@@ -65,14 +67,15 @@ public class RpcTests {
 	}
 
 	@Test
-	public void testRpcConditionalTriggerService(){
-		boolean res1=rpcConditionalTriggerService.stockTurnoverRate("SZ000002",(float)0.8,(float)0.5);
+	public void testRpcStocksService() {
+		List<String> res1 = rpcStocksService.getAllStocks();
+		List<List<String>> res2 = rpcStocksService.getStockHistory("SZ000001");
 	}
 
-
-	///databaseService 接口里面就没方法？？？？
-	public void testRpcDatabaseService(){
+	@Test
+	public void testRpcStyleFactorService() {
+		float res1 = rpcStyleFactorService.getBookToMarket("SZ000001");
+		float res2 = rpcStyleFactorService.getLiquidity("SZ000001");
+		float res3 = rpcStyleFactorService.getMomentum("SZ000001");
 	}
-
-
 }
