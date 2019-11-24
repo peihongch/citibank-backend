@@ -1,5 +1,7 @@
 package com.example.ffbackend;
 
+import java.util.List;
+
 import com.example.ffbackend.bl.RpcAdjustmentAndTriggeringOfPortfolioService;
 import com.example.ffbackend.bl.RpcCitibankApiService;
 import com.example.ffbackend.bl.RpcConditionalTriggerService;
@@ -62,5 +64,17 @@ public class RpcTests {
 		float res1 = rpcCitibankApiService.stockPoundage(15.3f);
 		float res2 = rpcCitibankApiService.optionsPoundage(12);
 		float res3 = rpcCitibankApiService.futurePoundage(5.02f);
+	}
+
+	@Test
+	public void testRpcStocksService() {
+		List<String> res1 = rpcStocksService.getAllStocks();
+	}
+
+	@Test
+	public void testRpcStyleFactorService() {
+		float res1 = rpcStyleFactorService.getBookToMarket("300100");
+		float res2 = rpcStyleFactorService.getLiquidity("000001.SZ");
+		float res3 = rpcStyleFactorService.getMomentum("000001.SZ");
 	}
 }
