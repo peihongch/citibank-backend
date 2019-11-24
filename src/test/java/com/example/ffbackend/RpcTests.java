@@ -69,12 +69,13 @@ public class RpcTests {
 	@Test
 	public void testRpcStocksService() {
 		List<String> res1 = rpcStocksService.getAllStocks();
+		List<List<String>> res2 = rpcStocksService.getStockHistory("SZ000001");
 	}
 
 	@Test
 	public void testRpcStyleFactorService() {
-		float res1 = rpcStyleFactorService.getBookToMarket("300100");
-		float res2 = rpcStyleFactorService.getLiquidity("000001.SZ");
-		float res3 = rpcStyleFactorService.getMomentum("000001.SZ");
+		float res1 = rpcStyleFactorService.getBookToMarket("SZ000001");
+		float res2 = rpcStyleFactorService.getLiquidity("SZ000001");
+		float res3 = rpcStyleFactorService.getMomentum("SZ000001");
 	}
 }
