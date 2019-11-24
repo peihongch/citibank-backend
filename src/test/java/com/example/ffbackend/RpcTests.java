@@ -52,7 +52,7 @@ public class RpcTests {
 
 	@Test
 	public void testRpcAdjustmentAndTriggeringOfPortfolioService() {
-		boolean res1 = rpcAdjustmentAndTriggeringOfPortfolioService.portFolioVar("????", 1.5f);
+		boolean res1 = rpcAdjustmentAndTriggeringOfPortfolioService.portFolioVar("12666", 1.5f);
 		boolean res2 = rpcAdjustmentAndTriggeringOfPortfolioService.stockDiff("????", 1.5f);
 		boolean res3 = rpcAdjustmentAndTriggeringOfPortfolioService.stockVolatility("????", 1.5f);
 	}
@@ -63,4 +63,16 @@ public class RpcTests {
 		float res2 = rpcCitibankApiService.optionsPoundage(12);
 		float res3 = rpcCitibankApiService.futurePoundage(5.02f);
 	}
+
+	@Test
+	public void testRpcConditionalTriggerService(){
+		boolean res1=rpcConditionalTriggerService.stockTurnoverRate("SZ000002",(float)0.8,(float)0.5);
+	}
+
+
+	///databaseService 接口里面就没方法？？？？
+	public void testRpcDatabaseService(){
+	}
+
+
 }
