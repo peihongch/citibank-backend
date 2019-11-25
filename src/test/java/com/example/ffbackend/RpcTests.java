@@ -71,8 +71,8 @@ public class RpcTests {
 	@Test
 	public void testRpcOptionFuturesService() {
 		List<String> assetIdList = new ArrayList<>();
-		assetIdList.add("SZ000002");assetIdList.add("SZ000002");
 		List<String> assetAmountList = new ArrayList<>();
+		assetIdList.add("000001.SZ");assetIdList.add("000002.SZ");
 		assetAmountList.add("105");assetAmountList.add("150");
 		float cash = 50000;
 		String beginT = "2019-10-5";
@@ -92,24 +92,28 @@ public class RpcTests {
 
 	@Test
 	public void testRpcStyleFactorService() {
-		float res1 = rpcStyleFactorService.getBookToMarket("SZ000001");
-		float res2 = rpcStyleFactorService.getLiquidity("SZ000001");
-		float res3 = rpcStyleFactorService.getMomentum("SZ000001");
+		float res1 = rpcStyleFactorService.getBookToMarket("300100");
+		float res2 = rpcStyleFactorService.getLiquidity("000001.SZ");
+		float res3 = rpcStyleFactorService.getMomentum("000001.SZ");
+		rpcStyleFactorService.getSize("000001.SZ","circ_mv");
 	}
 
 	@Test
 	public void testRpcRegularAdjustmentService(){
 		boolean res1=rpcRegularAdjustmentService.stockLeastPosition("SZ000001",1,2);
-		boolean res2=rpcRegularAdjustmentService.stockChange("SZ000002",12124,(float)0.5,(float)0.2);
-		boolean res3=rpcRegularAdjustmentService.stockMeanReturn("SZ000001",12124,(float)0.5);
-		boolean res4=rpcRegularAdjustmentService.stockVolatility("SZ000001",12124,(float)0.5);
+		boolean res2=rpcRegularAdjustmentService.stockChange("SZ000001",7,(float)0.5,(float)0.2);
+		boolean res3=rpcRegularAdjustmentService.stockMeanReturn("SZ000001",1,(float)0.5);
+		boolean res4=rpcRegularAdjustmentService.stockVolatility("SZ000001",30,(float)0.5);
 	}
 
 	@Test
 	public void testRpcConditionalTriggerService(){
 		boolean res1=rpcConditionalTriggerService.stockKdj("SZ000002",(float)0.5,(float)0.5,(float)0.5);
 		boolean res2=rpcConditionalTriggerService.stockMacd("SZ000001",(float)0.5,(float)0.5);
-		boolean res3=rpcConditionalTriggerService.stockRoc("SZ000001",1514871613,(float)0.5,(float)0.5);
+		boolean res3=rpcConditionalTriggerService.stockRoc("SZ000001",30,(float)0.6,(float)0.5);
+		boolean res4=rpcConditionalTriggerService.stockRsi("SZ000001",6,(float)0.6,(float)0.5);
+		boolean res5=rpcConditionalTriggerService.stockSharpe("SZ000001",(float)0.6);
+		boolean res6=rpcConditionalTriggerService.stockTurnoverRate("SZ000001",(float)0.6,(float)0.5);
 	}
 
 }
