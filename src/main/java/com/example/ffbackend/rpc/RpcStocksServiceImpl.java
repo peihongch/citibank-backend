@@ -27,14 +27,8 @@ public class RpcStocksServiceImpl implements RpcStocksService {
         StocksProto.GetStockHistoryInput input = StocksProto.GetStockHistoryInput.newBuilder().setStockCode(stockCode).build();
         var output = stocksBlockingStub.getStockHistory(input);
         List<List<String>> ret = new LinkedList<>();
-        for (StocksProto.GetStockHistoryRow row: output.getValueList()){
-            List<Float> rowList=row.getRowList();
-            List<String> temp=new LinkedList<>();
-            for(Float rowListitem: rowList){
-                temp.add(""+rowListitem);
-            }
-            ret.add(temp);
-        }
+        for (StocksProto.GetStockHistoryRow row: output.getValueList())
+            ret.add(row.getRowList());
         return ret;
     }
 }

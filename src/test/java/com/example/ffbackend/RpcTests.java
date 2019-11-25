@@ -1,5 +1,7 @@
 package com.example.ffbackend;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.example.ffbackend.bl.RpcAdjustmentAndTriggeringOfPortfolioService;
@@ -64,6 +66,22 @@ public class RpcTests {
 		float res1 = rpcCitibankApiService.stockPoundage(15.3f);
 		float res2 = rpcCitibankApiService.optionsPoundage(12);
 		float res3 = rpcCitibankApiService.futurePoundage(5.02f);
+	}
+
+	@Test
+	public void testRpcOptionFuturesService() {
+		List<String> assetIdList = new ArrayList<>();
+		assetIdList.add("SZ000002");assetIdList.add("SZ000002");
+		List<String> assetAmountList = new ArrayList<>();
+		assetAmountList.add("105");assetAmountList.add("150");
+		float cash = 50000;
+		String beginT = "2019-10-5";
+		String endT = "2019-10-5";
+		List<String> res1 = rpcOptionFuturesService.portfolioDelta(assetIdList, assetAmountList, cash, beginT, endT);
+		List<String> res2 = rpcOptionFuturesService.portfolioGamma(assetIdList, assetAmountList, cash, beginT, endT);
+		List<String> res3 = rpcOptionFuturesService.portfolioVega(assetIdList, assetAmountList, cash, beginT, endT);
+		List<String> res4 = rpcOptionFuturesService.portfolioTheta(assetIdList, assetAmountList, cash, beginT, endT);;
+		List<String> res5 = rpcOptionFuturesService.portfolioRho(assetIdList, assetAmountList, cash, beginT, endT);
 	}
 
 	@Test
