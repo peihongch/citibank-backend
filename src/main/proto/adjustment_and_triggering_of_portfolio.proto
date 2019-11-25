@@ -7,32 +7,70 @@ option java_package = "com.example.ffbackend.rpc.proto";
 option java_outer_classname = "AdjustmentAndTriggeringOfPortfolioProto";
 
 service AdjustmentAndTriggeringOfPortfolio{
-    rpc PortFolioVar(PortFolioInput) returns (PortFolioOutput){}
-    rpc PortfolioVolatility(PortFolioInput) returns (PortFolioOutput){}
-    rpc PortfolioDiff(PortFolioInput) returns (PortFolioOutput){}
+    rpc PortFolioVar(PortFolioVarInput) returns (PortFolioVarOutput){}
+    rpc PortfolioVolatility(PortfolioVolatilityInputs) returns (PortfolioVolatilityOutputs){}
+    //语法：
+    //portfolio_diff(portfolio_id: str, portfolio: str, cash: float, alpha:float, setting: float) -> bool
+    //输入：
+    //portfolio_id: 投资组合的标记号码，用于保存模型
+    //portfolio: 投资组合的json字符串
+    //cash: 用户持有的现金
+    //alpha: 用户设置的套保比例，默认为1
+    //top: 用户设置的差值上界
+    //说明：
+    //返回是否调整。
+    rpc PortfolioDiff(PortfolioDiffInput) returns (PortfolioDiffOutput){}
+    rpc PortfolioMeanReturn(PortfolioMeanReturnInput) returns (PortfolioMeanReturnOutput){}
+    rpc PortfolioChange(PortfolioChangeInput) returns (PortfolioChangeOutput){}
 }
 
-message PortFolioInput{
-    string price = 1;
+message PortFolioVarInput{
+    string portfolio = 1;
     float setting = 2;
 }
 
-message PortFolioOutput{
+message PortFolioVarOutput{
     bool value = 1;
 }
-//
-//message PortfolioVolatilityInput{
-//
-//}
-//
-//message PortfolioVolatilityOutput{
-//    bool value = 1;
-//}
-//
-//message PortfolioDiffInput{
-//
-//}
-//
-//message PortfolioDiffOutput{
-//    bool value = 1;
-//}
+
+message PortfolioVolatilityInputs{
+    string portfolio = 1;
+    float cash = 2;
+    float setting = 3;
+}
+
+message PortfolioVolatilityOutputs{
+    bool value = 1;
+}
+
+message PortfolioDiffInput{
+    string portfolio_id = 1;
+    string portfolio = 2;
+    float cash = 3;
+    float alpha = 4;
+    float top = 5;
+}
+
+message PortfolioDiffOutput{
+    bool value = 1;
+}
+
+message PortfolioMeanReturnInput{
+    string portfolio = 1;
+    float top = 2;
+    float bottom = 3;
+}
+
+message PortfolioMeanReturnOutput{
+    bool value = 1;
+}
+
+message PortfolioChangeInput{
+    string portfolio = 1;
+    float top = 2;
+    float bottom = 3;
+}
+
+message PortfolioChangeOutput{
+    bool value = 1;
+}
