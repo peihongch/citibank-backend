@@ -10,5 +10,5 @@ import lombok.Data;
 public class NewsVo {
     String title;
     String links;
-    Date date;
+    String date;
 }

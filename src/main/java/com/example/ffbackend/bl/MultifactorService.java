@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import com.example.ffbackend.da.NewsDaService;
+import com.example.ffbackend.repo.NewsRepo;
 import com.example.ffbackend.vo.MultifactorDetailsVo;
+import com.example.ffbackend.vo.NewsVo;
 import com.example.ffbackend.vo.StockTipVo;
 import com.example.ffbackend.vo.MultifactorDetailsVo.MultifactorDatasetVo;
 
@@ -24,6 +27,7 @@ public class MultifactorService {
 
     @Autowired
     RpcStyleFactorService rpcStyleFactorService;
+
 
     public List<StockTipVo> getStockTips(Integer userId) {
         // TODO: 对接rpc

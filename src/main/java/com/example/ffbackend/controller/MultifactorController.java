@@ -1,5 +1,6 @@
 package com.example.ffbackend.controller;
 
+import com.example.ffbackend.bl.NewsService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,13 +26,12 @@ public class MultifactorController {
     @Autowired
     MultifactorService multifactorService;
 
+    @Autowired
+    NewsService newsService;
+
     @GetMapping(value = "/{user-id}/news")
     public ResponseBean<List<NewsVo>> getNews(@PathVariable("user-id") Integer userId) {
-        var newsList = new ArrayList<NewsVo>();
-        newsList.add(new NewsVo("陶园二舍七楼失火，火势蔓延到食堂", "https://www.baidu.com", new Date()));
-        newsList.add(new NewsVo("南大鼓楼校区教学楼爆炸", "https://www.baidu.com", new Date()));
-        newsList.add(new NewsVo("鼓楼校区三食堂墙体裂开", "https://www.baidu.com", new Date()));
-
+        var newsList =  newsService.getNewsByUserId(userId);
         return new ResponseBean<>(true, newsList);
     }
 

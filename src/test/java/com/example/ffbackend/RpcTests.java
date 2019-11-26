@@ -56,9 +56,9 @@ public class RpcTests {
 
 	@Test
 	public void testRpcAdjustmentAndTriggeringOfPortfolioService() {
-		boolean res1 = rpcAdjustmentAndTriggeringOfPortfolioService.portFolioVar("12666", 1.5f);
-		boolean res2 = rpcAdjustmentAndTriggeringOfPortfolioService.stockDiff("7.5", 1.5f);
-		boolean res3 = rpcAdjustmentAndTriggeringOfPortfolioService.stockVolatility("7.6", 1.5f);
+		boolean res1 = rpcAdjustmentAndTriggeringOfPortfolioService.portfolioVar("{}",0.8f);
+		//boolean res2 = rpcAdjustmentAndTriggeringOfPortfolioService.portfolioDiff("{}", 1.5f);
+		//boolean res3 = rpcAdjustmentAndTriggeringOfPortfolioService.stockVolatility("{}", 1.5f);
 	}
 
 	@Test
