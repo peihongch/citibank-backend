@@ -13,26 +13,26 @@ public class RpcAdjustmentAndTriggeringOfPortfolioServiceImpl implements RpcAdju
             adjustmentAndTriggeringOfPortfolioBlockingStub;
 
     @Override
-    public boolean portFolioVar(String price, float setting) {
-        PortFolioInput portFolioInput = PortFolioInput.newBuilder()
-                .setPrice(price).setSetting(setting).build();
-        PortFolioOutput portFolioOutput = adjustmentAndTriggeringOfPortfolioBlockingStub.portFolioVar(portFolioInput);
-        return portFolioOutput.getValue();
+    public boolean portfolioVar(String portfolio, float setting) {
+        PortFolioVarInput portFolioVarInput = PortFolioVarInput.newBuilder()
+                .setPortfolio(portfolio).setSetting(setting).build();
+        PortFolioVarOutput portFolioVarOutput = adjustmentAndTriggeringOfPortfolioBlockingStub.portFolioVar(portFolioVarInput);
+        return portFolioVarOutput.getValue();
     }
 
     @Override
-    public boolean stockVolatility(String price, float setting) {
-        PortFolioInput portFolioInput = PortFolioInput.newBuilder()
-                .setPrice(price).setSetting(setting).build();
-        PortFolioOutput portFolioOutput = adjustmentAndTriggeringOfPortfolioBlockingStub.portfolioVolatility(portFolioInput);
-        return portFolioOutput.getValue();
+    public boolean portfolioVolatility(String portfolio, float cash, float setting) {
+        PortfolioVolatilityInputs portfolioVolatilityInputs = PortfolioVolatilityInputs.newBuilder()
+                .setPortfolio(portfolio).setCash(cash).setSetting(setting).build();
+        PortfolioVolatilityOutputs portfolioVolatilityOutputs = adjustmentAndTriggeringOfPortfolioBlockingStub.portfolioVolatility(portfolioVolatilityInputs);
+        return portfolioVolatilityOutputs.getValue();
     }
 
     @Override
-    public boolean stockDiff(String price, float setting) {
-        PortFolioInput portFolioInput = PortFolioInput.newBuilder()
-                .setPrice(price).setSetting(setting).build();
-        PortFolioOutput portFolioOutput = adjustmentAndTriggeringOfPortfolioBlockingStub.portfolioDiff(portFolioInput);
-        return portFolioOutput.getValue();
+    public boolean portfolioDiff(String portfolioId, String portfolio, float cash, float alpha, float setting) {
+        PortfolioDiffInput portfolioDiffInput = PortfolioDiffInput.newBuilder()
+                .setPortfolioId(portfolioId).setPortfolio(portfolio).setCash(cash).setAlpha(alpha).setTop(setting).build();
+        PortfolioDiffOutput portfolioDiffOutput = adjustmentAndTriggeringOfPortfolioBlockingStub.portfolioDiff(portfolioDiffInput);
+        return portfolioDiffOutput.getValue();
     }
 }
