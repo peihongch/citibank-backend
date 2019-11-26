@@ -6,7 +6,7 @@ import io.grpc.ManagedChannelBuilder;
 import org.springframework.context.annotation.Bean;
 
 public class RpcTest {
-    private String host = "111.231.121.238";
+    private String host = "127.0.0.1";
     private int port = 50051;
 
     public RpcTest() {

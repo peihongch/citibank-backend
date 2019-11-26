@@ -47,6 +47,16 @@ service StyleFactor{
     //后置条件：
     //返回对应股票的流动性因子
     rpc GetLiquidity(GetLiquidityInput) returns (GetLiquidityOutput){}
+
+//    get_beta(stock_code:str)
+//    获取所有beta
+//    以及数据库id和证券代码，以备不时之需
+
+    rpc GetBeta(GetBetaInput) returns (GetBetaOutput){}
+
+    //get_all_factors()
+    //["","",""]
+    rpc GetAllFactors(GetAllFactorsInput) returns (GetAllFactorsOutput){}
 }
 
 message GetSizeInput{
@@ -60,6 +70,7 @@ message GetSizeOutput{
 
 message GetMomentumInput{
     string ts_code = 1;
+    string fields=2;
 }
 
 message GetMomentumOutput{
@@ -80,4 +91,16 @@ message GetLiquidityInput{
 
 message GetLiquidityOutput{
     float value = 1;
+}
+message GetBetaInput{
+    string stock_code = 1;
+}
+message GetBetaOutput{
+    repeated float out_list = 1;
+}
+message GetAllFactorsInput{
+
+}
+message GetAllFactorsOutput{
+    repeated string out_list=1;
 }

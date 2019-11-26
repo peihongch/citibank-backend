@@ -1,5 +1,7 @@
 package com.example.ffbackend.bl;
 
+import java.util.List;
+
 public interface RpcStyleFactorService {
     /**
      * 语法：
@@ -49,4 +51,15 @@ public interface RpcStyleFactorService {
      * 返回对应股票的流动性因子
      */
     float getLiquidity(String stockCode);
+
+
+    /**
+     * get_all_factors()
+     */
+    List<String> getAllFactors();
+
+    /**
+     * get_beta(stock_code:str)
+     */
+    List<Float> getBeta(String stockCode);
 }

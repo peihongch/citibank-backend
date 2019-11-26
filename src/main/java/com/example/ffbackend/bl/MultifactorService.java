@@ -22,12 +22,16 @@ public class MultifactorService {
     @Autowired
     StockService stockService;
 
+    @Autowired
+    RpcStyleFactorService rpcStyleFactorService;
+
     public List<StockTipVo> getStockTips(Integer userId) {
         // TODO: 对接rpc
         var tips = new ArrayList<StockTipVo>();
         tips.add(new StockTipVo("203040", "南大食堂"));
         tips.add(new StockTipVo("233046", "沛东蟹黄煲"));
         tips.add(new StockTipVo("420300", "黄林动物园"));
+
         return tips;
     }
 

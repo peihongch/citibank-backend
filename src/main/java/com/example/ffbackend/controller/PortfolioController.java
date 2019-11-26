@@ -31,6 +31,10 @@ public class PortfolioController {
     public ResponseBean<Map<String, Double>> getPortfolioCurrentPrice(@PathVariable("user-id") Integer userId) {
         return new ResponseBean<>(true, bl.getPortfolioCurrentPrice(userId));
     }
+    @GetMapping(value = "/{user-id}/recommend-portfolio")
+    public ResponseBean<List<String>> gerRecommendPortfolio(@PathVariable("user-id") Integer userId){
+        return new ResponseBean<>();
+    }
 
     @PutMapping(value = "/{user-id}/stock-in-portfolio/")
     public ResponseBean<Object> updatePortfolio(@PathVariable("user-id") Integer userId,

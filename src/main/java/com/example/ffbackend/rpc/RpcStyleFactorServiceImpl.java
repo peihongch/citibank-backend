@@ -1,10 +1,14 @@
 package com.example.ffbackend.rpc;
 
 import com.example.ffbackend.bl.RpcStyleFactorService;
+import com.example.ffbackend.rpc.proto.StocksProto;
 import com.example.ffbackend.rpc.proto.StyleFactorGrpc;
 import com.example.ffbackend.rpc.proto.StyleFactorProto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.LinkedList;
+import java.util.List;
 
 @Service
 public class RpcStyleFactorServiceImpl implements RpcStyleFactorService {
@@ -45,5 +49,20 @@ public class RpcStyleFactorServiceImpl implements RpcStyleFactorService {
                 .build();
         GetLiquidityOutput getLiquidityOutput = styleFactorBlockingStub.getLiquidity(getLiquidityInput);
         return getLiquidityOutput.getValue();
+    }
+
+    @Override
+    public List<String> getAllFactors(){
+        GetAllFactorsInput getAllFactorsInput = GetAllFactorsInput.newBuilder().build();
+        GetAllFactorsOutput getAllFactorsOutput = styleFactorBlockingStub.getAllFactors(getAllFactorsInput);
+
+        return getAllFactorsOutput.getOutListList();
+    }
+    @Override
+    public List<Float> getBeta(String stockCode) {
+        GetBetaInput getBetaInput = GetBetaInput.newBuilder().setStockCode(stockCode).build();
+        GetBetaOutput getBetaOutput = styleFactorBlockingStub.getBeta(getBetaInput);
+
+        return getBetaOutput.getOutListList();
     }
 }

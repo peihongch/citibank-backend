@@ -57,8 +57,8 @@ public class RpcTests {
 	@Test
 	public void testRpcAdjustmentAndTriggeringOfPortfolioService() {
 		boolean res1 = rpcAdjustmentAndTriggeringOfPortfolioService.portFolioVar("12666", 1.5f);
-		boolean res2 = rpcAdjustmentAndTriggeringOfPortfolioService.stockDiff("????", 1.5f);
-		boolean res3 = rpcAdjustmentAndTriggeringOfPortfolioService.stockVolatility("????", 1.5f);
+		boolean res2 = rpcAdjustmentAndTriggeringOfPortfolioService.stockDiff("7.5", 1.5f);
+		boolean res3 = rpcAdjustmentAndTriggeringOfPortfolioService.stockVolatility("7.6", 1.5f);
 	}
 
 	@Test
@@ -92,24 +92,23 @@ public class RpcTests {
 
 	@Test
 	public void testRpcStyleFactorService() {
-		float res1 = rpcStyleFactorService.getBookToMarket("SZ000001");
-		float res2 = rpcStyleFactorService.getLiquidity("SZ000001");
-		float res3 = rpcStyleFactorService.getMomentum("SZ000001");
+		List<String> res1 = rpcStyleFactorService.getAllFactors();
+		List<Float> res2 = rpcStyleFactorService.getBeta("SZ000001");
 	}
 
 	@Test
 	public void testRpcRegularAdjustmentService(){
 		boolean res1=rpcRegularAdjustmentService.stockLeastPosition("SZ000001",1,2);
-		boolean res2=rpcRegularAdjustmentService.stockChange("SZ000002",12124,(float)0.5,(float)0.2);
-		boolean res3=rpcRegularAdjustmentService.stockMeanReturn("SZ000001",12124,(float)0.5);
-		boolean res4=rpcRegularAdjustmentService.stockVolatility("SZ000001",12124,(float)0.5);
+		boolean res2=rpcRegularAdjustmentService.stockChange("SZ000002",7,(float)0.5,(float)0.2);
+		boolean res3=rpcRegularAdjustmentService.stockMeanReturn("SZ000001",30,(float)0.5);
+		boolean res4=rpcRegularAdjustmentService.stockVolatility("SZ000001",7,(float)0.5);
 	}
 
 	@Test
 	public void testRpcConditionalTriggerService(){
 		boolean res1=rpcConditionalTriggerService.stockKdj("SZ000002",(float)0.5,(float)0.5,(float)0.5);
 		boolean res2=rpcConditionalTriggerService.stockMacd("SZ000001",(float)0.5,(float)0.5);
-		boolean res3=rpcConditionalTriggerService.stockRoc("SZ000001",1514871613,(float)0.5,(float)0.5);
+		boolean res3=rpcConditionalTriggerService.stockRoc("SZ000001",7,(float)0.5,(float)0.5);
 	}
 
 }
