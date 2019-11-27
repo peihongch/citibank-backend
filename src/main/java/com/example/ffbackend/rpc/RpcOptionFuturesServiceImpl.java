@@ -15,6 +15,38 @@ public class RpcOptionFuturesServiceImpl implements RpcOptionFuturesService {
     private OptionFuturesGrpc.OptionFuturesBlockingStub optionFuturesBlockingStub;
 
     //=========================================================
+    // xhl新增加的4个接口
+    //=========================================================
+
+    @Override
+    public List<String> GetAllOptions() {
+        GetAllOptionsInput getAllOptionsInput = GetAllOptionsInput.newBuilder().build();
+        GetAllOptionsOutput optionsOutput = optionFuturesBlockingStub.getAllOptions(getAllOptionsInput);
+        return optionsOutput.getValueList();
+    }
+
+    @Override
+    public List<String> GetAllFutures() {
+        GetAllFuturesInput getAllFuturesInput = GetAllFuturesInput.newBuilder().build();
+        GetAllFuturesOutput getAllFuturesOutput = optionFuturesBlockingStub.getAllFutures(getAllFuturesInput);
+        return getAllFuturesOutput.getValueList();
+    }
+
+    @Override
+    public String GetFutureInfo(String id) {
+        GetFutureInfoInput getFutureInfoInput = GetFutureInfoInput.newBuilder().setId(id).build();
+        GetFutureInfoOutput getFutureInfoOutput = optionFuturesBlockingStub.getFutureInfo(getFutureInfoInput);
+        return getFutureInfoOutput.getValue();
+    }
+
+    @Override
+    public String GetOptionInfo(String id) {
+        GetOptionInfoInput getOptionInfoInput = GetOptionInfoInput.newBuilder().setId(id).build();
+        GetOptionInfoOutput getOptionInfoOutput = optionFuturesBlockingStub.getOptionInfo(getOptionInfoInput);
+        return getOptionInfoOutput.getValue();
+    }
+
+    //=========================================================
     //期权部分函数
     //=========================================================
 

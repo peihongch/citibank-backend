@@ -4,6 +4,26 @@ import java.util.List;
 
 public interface RpcOptionFuturesService {
     //=========================================================
+    // xhl新增加的4个接口
+    //=========================================================
+
+    //def get_all_options():
+    //    return backtest.options.get_all_options()
+    List<String> GetAllOptions();
+
+    //def get_all_futures():
+    //    return backtest.options.get_all_futures()
+    List<String> GetAllFutures();
+
+    //def get_future_info(id):
+    //    return backtest.options.get_future_info(id)
+    String GetFutureInfo(String id);
+
+    //def get_option_info(id):
+    //    return backtest.options.get_option_info(id)
+    String GetOptionInfo(String id);
+
+    //=========================================================
     //期权部分函数
     //=========================================================
 

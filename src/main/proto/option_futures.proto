@@ -8,6 +8,26 @@ option java_outer_classname = "OptionFuturesProto";
 
 service OptionFutures {
     //=========================================================
+    // xhl新增加的4个接口
+    //=========================================================
+
+    //def get_all_options():
+    //    return backtest.options.get_all_options()
+    rpc GetAllOptions(GetAllOptionsInput) returns (GetAllOptionsOutput){}
+
+    //def get_all_futures():
+    //    return backtest.options.get_all_futures()
+    rpc GetAllFutures(GetAllFuturesInput) returns (GetAllFuturesOutput){}
+
+    //def get_future_info(id):
+    //    return backtest.options.get_future_info(id)
+    rpc GetFutureInfo(GetFutureInfoInput) returns (GetFutureInfoOutput){}
+
+    //def get_option_info(id):
+    //    return backtest.options.get_option_info(id)
+    rpc GetOptionInfo(GetOptionInfoInput) returns (GetOptionInfoOutput){}
+
+    //=========================================================
     //期权部分函数文档
     //=========================================================
     rpc PortfolioDelta (PortfolioDeltaInput) returns (PortfolioDeltaOutput) {
@@ -70,6 +90,38 @@ service OptionFutures {
 
     rpc GenerateRecommendFuture (GenerateRecommendFutureInput) returns (GenerateRecommendFutureOutput) {
     }
+}
+
+message GetAllOptionsInput{
+    // placeholder
+}
+
+message GetAllOptionsOutput{
+    repeated string value = 1;
+}
+
+message GetAllFuturesInput{
+    // placeholder
+}
+
+message GetAllFuturesOutput{
+    repeated string value = 1;
+}
+
+message GetFutureInfoInput{
+    string id = 1;
+}
+
+message GetFutureInfoOutput{
+    string value = 1;
+}
+
+message GetOptionInfoInput{
+    string id = 1;
+}
+
+message GetOptionInfoOutput{
+    string value = 1;
 }
 
 //=========================================================
